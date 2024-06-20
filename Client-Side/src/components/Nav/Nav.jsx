@@ -1,17 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CgMenuRightAlt } from 'react-icons/cg';
 import { NavLink } from 'react-router-dom';
-import { ImSpinner9 } from 'react-icons/im';
-import ProfileMenu from '../ProfileMenu/ProfileMenu';
-import useAuth from '../../Hooks/useAuth';
+import { LanguageContext } from '../../provider/LanguageContext';
+import { MdGTranslate } from 'react-icons/md';
 
 const Nav = () => {
   const [menu, setMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { userDta, isLoading } = useAuth();
+  const { language, toggleLanguage } = useContext(LanguageContext);
   // console.log(userDta);
-  const isAdmin = false;
-  console.log(isAdmin);
 
   useEffect(() => {
     const handleScrolled = () => {
@@ -32,58 +29,44 @@ const Nav = () => {
     <div
       className={
         scrolled
-          ? 'w-full fixed top-0 left-0 z-50 py-3 pb-4 bg-[#0b1625ca] shadow-xl shadow-[#343a4298] duration-300'
-          : 'w-full fixed top-0 left-0 z-50 pt-5 sm:pt-8 pb-4 duration-300'
+          ? 'w-full fixed top-0 left-0 z-50 py-3 pb-4 bg-[#0b162537] shadow-xl shadow-[#343a4268] duration-300'
+          : 'w-full fixed top-0 left-0 z-50 pt-5 sm:pt-8 pb-4 duration-300 border-b border-b-slate-200'
       }
     >
       <div className=" flex justify-between items-center w-11/12 mx-auto">
-        <button className="text-3xl font-bold">Logo</button>
+        <button className="text-3xl font-bold w-36 h-14 rounded-lg border-2 text-slate-100 border-slate-100">
+          Logo
+        </button>
         <div className="hidden md:flex gap-5 items-center navigation">
           <NavLink
             className="py-2 px-5 rounded-md shadow-md shadow-slate-200 text-white font-medium hover:shadow-lg hover:shadow-slate-200 hover:scale-110 duration-300"
             to={'/'}
           >
-            Home
+            {language === 'en' ? (
+              'Home'
+            ) : (
+              <span className="font-bang">হোম</span>
+            )}
           </NavLink>
-          <NavLink
-            className="py-2 px-5 rounded-md shadow-md shadow-slate-200 text-white font-medium  hover:shadow-lg hover:shadow-slate-200 hover:scale-110 duration-300"
-            font-medium
-            to={'/today-menu'}
-          >
-            Today Menu
-          </NavLink>
-          {isAdmin ? (
-            <NavLink
-              className="py-2 px-5 rounded-md shadow-md shadow-slate-200 text-white font-medium  hover:shadow-lg hover:shadow-slate-200 hover:scale-110 duration-300"
-              font-medium
-              to={'/Dashboard'}
-            >
-              Dashboard
-            </NavLink>
-          ) : (
-            <NavLink
-              className="py-2 px-5 rounded-md shadow-md shadow-slate-200 text-white font-medium  hover:shadow-lg hover:shadow-slate-200 hover:scale-110 duration-300"
-              font-medium
-              to={'/my-orders'}
-            >
-              My Order
-            </NavLink>
-          )}
         </div>
         <div className="flex items-center gap-4 relative">
-          {isLoading ? (
-            <div className="py-2 w-[60px] h-[60px] flex items-center justify-center text-5xl text-white">
-              <ImSpinner9 className="animate-spin" />
-            </div>
-          ) : userDta ? (
-            <ProfileMenu />
-          ) : (
-            <NavLink to={'/login'}>
-              <button className="py-2 px-6 shadow-md shadow-slate-200 hover:shadow-slate-200 hover:shadow-lg hover:scale-110 duration-300 rounded ">
-                Log in
-              </button>
-            </NavLink>
-          )}
+          <button
+            onClick={toggleLanguage}
+            className="py-2 w-36 text-center justify-center bg-blue-500 text-white rounded flex items-center gap-2"
+          >
+            <span className="text-2xl">
+              <MdGTranslate />
+            </span>
+            {language === 'en' ? (
+              'Bangla'
+            ) : (
+              <span className="font-bang">ইংলিশ</span>
+            )}
+          </button>
+          <button className="py-2 px-6 bg-pClr rounded-md font-bold">
+            Appointment
+          </button>
+
           <button onClick={() => setMenu(!menu)} className="text-4xl md:hidden">
             <CgMenuRightAlt />
           </button>
