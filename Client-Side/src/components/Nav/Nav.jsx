@@ -30,16 +30,16 @@ const Nav = () => {
       className={
         scrolled
           ? 'w-full fixed top-0 left-0 z-50 py-3 pb-4 bg-[#0b162537] shadow-xl shadow-[#343a4268] duration-300'
-          : 'w-full fixed top-0 left-0 z-50 pt-5 sm:pt-8 pb-4 duration-300 border-b border-b-slate-200'
+          : 'w-full fixed top-0 left-0 z-50 pt-5 sm:pt-8 pb-4 duration-300 border-b border-b-slate-200 bg-[#ffffffef]'
       }
     >
       <div className=" flex justify-between items-center w-11/12 mx-auto">
-        <button className="text-3xl font-bold w-36 h-14 rounded-lg border-2 text-slate-100 border-slate-100">
+        <button className="text-3xl font-bold w-36 h-14 rounded-lg border-2 text-slate-600 border-slate-700">
           Logo
         </button>
         <div className="hidden md:flex gap-5 items-center navigation">
           <NavLink
-            className="py-2 px-5 rounded-md shadow-md shadow-slate-200 text-white font-medium hover:shadow-lg hover:shadow-slate-200 hover:scale-110 duration-300"
+            className="py-2 px-5 rounded-md shadow-md shadow-slate-200 text-slate-500 font-medium hover:shadow-lg hover:shadow-slate-200 hover:scale-110 duration-300"
             to={'/'}
           >
             {language === 'en' ? (
