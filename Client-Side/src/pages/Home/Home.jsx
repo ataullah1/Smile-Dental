@@ -58,7 +58,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    <div className='w-11/12 mx-auto'>
+      <div className="w-11/12 mx-auto">
         <div className="min-h-64 my-5 md:hidden w-full border-2 border-slate-200 bg-[#ffffffbd] rounded-md text-slate-800 p-4">
           <h1 className="text-4xl text-center font-bold pb-3">
             {lang ? (
@@ -67,11 +67,13 @@ const Home = () => {
               '  Make Appointment'
             )}
           </h1>
-  
+
           {/* Appointment form======= */}
           <BannerAppiontmentFrom />
         </div>
-    </div>
+
+        <div className="py-52"><h1 className='text-5xl font-bold text-center'>This website is a work in progress</h1></div>
+      </div>
     </div>
   );
 };
