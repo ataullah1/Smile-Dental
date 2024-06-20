@@ -67,7 +67,7 @@ const Nav = () => {
             <span className="text-2xl">
               <MdGTranslate />
             </span>
-            {lang ? <span className="bang">বাং</span> : 'EN'}
+            {lang ? 'EN' : <span className="bang">বাং</span>}
           </button>
           {/* appoinment btn */}
           <button className="py-2 px-6 bg-[#02a4ba] text-white rounded-md font-bold">
