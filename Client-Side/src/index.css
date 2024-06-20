@@ -23,8 +23,9 @@ div {
 }
 
 /* Menu Active color */
-.navigation > a.active {
-  color: #00bcd5;
+.navigation > a.active,
+.dropdownMenu > a.active {
+  color: #02a4ba;
 }
 
 /* Custom Scroll  */

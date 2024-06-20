@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         pClr: '#00BCD5',
+        pClr2: '#02a4ba',
       },
     },
   },
