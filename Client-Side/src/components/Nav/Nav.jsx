@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { LanguageContext } from '../../provider/LanguageContext';
 import { MdGTranslate } from 'react-icons/md';
 import useLang from '../../Hooks/useLang';
+import { FaAngleDown } from 'react-icons/fa';
 
 const Nav = () => {
   const [menu, setMenu] = useState(false);
@@ -40,10 +41,22 @@ const Nav = () => {
         <button className="text-3xl font-bold w-36 h-12 rounded-lg border-2 text-slate-600 border-slate-700">
           Logo
         </button>
-        <div className="hidden md:flex gap-5 items-center navigation">
+        <div className="hidden md:flex gap-5 items-center navigation text-slate-900 text-lg">
           <NavLink className="py-2 px-2 hover:text-pClr" to={'/'}>
             {lang ? <span className="bang">হোম</span> : 'Home'}
           </NavLink>
+          <NavLink className="py-2 px-2 hover:text-pClr" to={'/branches'}>
+            {lang ? <span className="bang">শাখা সমূহ</span> : 'Branches'}
+          </NavLink>
+          <NavLink className="py-2 px-2 hover:text-pClr" to={'/treatments'}>
+            {lang ? <span className="bang">চিকিৎসা</span> : 'Treatments'}
+          </NavLink>
+          <button className="py-2 px-2 hover:text-pClr flex items-center gap-2">
+            {lang ? <span className="bang">অন্যান্য</span> : 'Others'}
+            <span className="text-xl text-slate-600">
+              <FaAngleDown />
+            </span>
+          </button>
         </div>
         <div className="flex items-center gap-4 relative">
           {/* Language Toggle btn */}
