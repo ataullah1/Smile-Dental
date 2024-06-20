@@ -22,6 +22,11 @@ div {
   font-family: 'Noto Sans Bengali', sans-serif;
 }
 
+/* Menu Active color */
+.navigation > a.active {
+  color: #00bcd5;
+}
+
 /* Custom Scroll  */
 
 /* width */
