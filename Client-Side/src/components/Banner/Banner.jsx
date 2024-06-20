@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import useLang from '../../Hooks/useLang';
 
 export const Banner = () => {
-  const lag = useLang();
+  //   Slider ==============
   const [currentSlider, setCurrentSlider] = useState(0);
   const carouselImages = [
     'https://img.freepik.com/free-photo/young-female-patient-visiting-dentist-office_496169-930.jpg?t=st=1718867366~exp=1718870966~hmac=3fdf6dd1a6212cd93afb6507e8d09f0e53fcaa5800eee12797752f9e07550904&w=900',
@@ -33,7 +32,7 @@ export const Banner = () => {
   }, [nextSlider]);
 
   return (
-    <div className="h-60 w-full md:h-[470px] lg:h-screen relative overflow-hidden">
+    <div className="h-60 w-full md:h-[470px] lg:h-screen relative overflow-hidden mt-20">
       {/* arrow left */}
       <button
         onClick={prevSlider}
@@ -76,20 +75,7 @@ export const Banner = () => {
             />
           ))}
         </div>
-        <div className="bg-[#0200009c] absolute top-0 left-0 h-full w-full">
-          <div className="w-11/12 mx-auto h-full flex items-center gap-5">
-            <div className="h-64 w-1/2 border-slate-200 rounded-md"></div>
-            <div className="h-64 w-1/2 border-2 border-slate-200 rounded-md">
-              <h1 className="text-4xl text-center font-bold text-slate-100">
-                {lag ? (
-                  <span className='bang text-3xl'>একটি অ্যাপয়েন্টমেন্ট বুক করুন</span>
-                ) : (
-                  '  Book A Appointment'
-                )}
-              </h1>
-            </div>
-          </div>
-        </div>
+        <div className="bg-[#0200009c] absolute top-0 left-0 h-full w-full"></div>
       </div>
     </div>
   );

@@ -31,7 +31,7 @@ const Nav = () => {
     // <div className="fixed left-0 top-0 z-50 w-full" >
     <div
       className={`w-full fixed top-0 left-0 z-[900] duration-300 bg-[#ffffffef]
-      ${scrolled ? 'shadow-xl shadow-[#ffffff70] opacity-95 py-2' : 'py-3'}`}
+      ${scrolled ? 'shadow-xl shadow-[#ffffff70] py-2' : 'py-3'}`}
     >
       <div className=" flex justify-between items-center w-11/12 mx-auto">
         <button className="text-3xl font-bold w-28 sm:w-36 h-12 rounded-lg border-2 text-slate-600 border-slate-700">
@@ -107,14 +107,17 @@ const Nav = () => {
                   'Our Dentists'
                 )}
               </NavLink>
-              <NavLink className="py-2 px-2 hover:text-pClr" to={'/dentists'}>
+              <NavLink
+                className="py-2 px-2 hover:text-pClr"
+                to={'/appointment'}
+              >
                 {lang ? (
                   <span className="bang">অ্যাপয়েন্টমেন্ট</span>
                 ) : (
                   'Appointment'
                 )}
               </NavLink>
-              <NavLink className="py-2 px-2 hover:text-pClr" to={'/dentists'}>
+              <NavLink className="py-2 px-2 hover:text-pClr" to={'/carrer'}>
                 {lang ? <span className="bang">আমাদের চাকরি</span> : 'Our Jobs'}
               </NavLink>
             </div>
@@ -267,7 +270,7 @@ const Nav = () => {
                   <NavLink
                     onClick={() => setMenu(!menu)}
                     className="py-2 px-2 hover:text-pClr"
-                    to={'/dentists'}
+                    to={'/appointment'}
                   >
                     {lang ? (
                       <span className="bang">অ্যাপয়েন্টমেন্ট</span>
@@ -283,7 +286,7 @@ const Nav = () => {
                     {lang ? (
                       <span className="bang">আমাদের চাকরি</span>
                     ) : (
-                      'Our Jobs'
+                      'carrer'
                     )}
                   </NavLink>
                 </div>
