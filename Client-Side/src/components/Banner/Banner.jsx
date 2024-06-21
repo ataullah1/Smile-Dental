@@ -32,7 +32,7 @@ export const Banner = () => {
   }, [nextSlider]);
 
   return (
-    <div className="h-80 w-full md:h-[550px] lg:h-screen relative overflow-hidden mt-20">
+    <div className="h-96 w-full md:h-[550px] lg:h-screen relative overflow-hidden mt-20">
       {/* arrow left */}
       <button
         onClick={prevSlider}

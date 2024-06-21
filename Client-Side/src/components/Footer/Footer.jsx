@@ -78,7 +78,7 @@ const Footer = () => {
           <p className="">
             {lang ? (
               <span className="bang">
-                কপিরাইট © 2024 - সমস্ত অধিকার সংরক্ষিত
+                কপিরাইট © ২০২৪ - সমস্ত অধিকার সংরক্ষিত
               </span>
             ) : (
               '  Copyright © 2024 - All right reserved by'
