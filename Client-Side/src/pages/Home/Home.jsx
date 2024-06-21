@@ -15,11 +15,8 @@ const Home = () => {
         <OnlyMobileViewAppointmentForm />
 
         {/* Start main section  ========= */}
-        <div className="">
-
-        </div>
+        <div className=""></div>
       </div>
-      
     </div>
   );
 };

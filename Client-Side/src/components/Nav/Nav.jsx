@@ -1,31 +1,18 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { CgClose, CgMenuRightAlt } from 'react-icons/cg';
 import { Link, NavLink } from 'react-router-dom';
 import { LanguageContext } from '../../provider/LanguageContext';
 import { MdGTranslate } from 'react-icons/md';
 import useLang from '../../Hooks/useLang';
 import { FaChevronDown } from 'react-icons/fa';
+import { PropTypes } from 'prop-types';
 
-const Nav = () => {
+const Nav = ({ scrolled }) => {
   const [menu, setMenu] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const { toggleLanguage } = useContext(LanguageContext);
   const lang = useLang();
   // console.log(userDta);
 
-  useEffect(() => {
-    const handleScrolled = () => {
-      if (window.scrollY > 0) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScrolled);
-    return () => {
-      window.removeEventListener('scroll', handleScrolled);
-    };
-  }, []);
   // console.log(scrolled);
   return (
     // <div className="fixed left-0 top-0 z-50 w-full" >
@@ -319,3 +306,6 @@ const Nav = () => {
 };
 
 export default Nav;
+Nav.propTypes = {
+  scrolled: PropTypes.bool,
+};

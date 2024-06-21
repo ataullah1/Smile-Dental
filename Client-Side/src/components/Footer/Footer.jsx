@@ -81,7 +81,7 @@ const Footer = () => {
                 কপিরাইট © ২০২৪ - সমস্ত অধিকার সংরক্ষিত
               </span>
             ) : (
-              '  Copyright © 2024 - All right reserved by'
+              '  Copyright © 2024 - All right reserved by '
             )}
             <a
               target="_blank"
