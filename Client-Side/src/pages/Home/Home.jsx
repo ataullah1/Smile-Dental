@@ -15,7 +15,10 @@ const Home = () => {
         <OnlyMobileViewAppointmentForm />
 
         {/* Start main section  ========= */}
-        <div className=""></div>
+        <div className="flex flex-col lg:flex-row gap-5">
+          <div className="w-full lg:w-1/2"></div>
+          <div className="w-full lg:w-1/2"></div>
+        </div>
       </div>
     </div>
   );
