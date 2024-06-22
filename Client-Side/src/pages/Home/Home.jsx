@@ -16,8 +16,8 @@ const Home = () => {
 
         {/* Start main section  ========= */}
         <div className="flex flex-col lg:flex-row gap-5">
-          <div className="w-full lg:w-1/2"></div>
-          <div className="w-full lg:w-1/2"></div>
+          <div className="w-full lg:w-1/2 min-h-60 bg-red-300"></div>
+          <div className="w-full lg:w-1/2 min-h-60 bg-green-200"></div>
         </div>
       </div>
     </div>
