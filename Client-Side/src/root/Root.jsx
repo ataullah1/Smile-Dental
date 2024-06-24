@@ -39,7 +39,7 @@ const Root = () => {
             : 'translate-x-44 duration-500'
         }`}
       >
-        <img src={goTop} alt="" className="max-w-12" />
+        <img src={goTop} alt="" className="max-w-10" />
       </button>
     </div>
   );
