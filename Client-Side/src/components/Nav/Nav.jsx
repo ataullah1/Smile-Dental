@@ -131,7 +131,7 @@ const Nav = ({ scrolled }) => {
           {/* appoinment btn */}
           <Link
             to={'/login'}
-            className="py-2 px-4 xl:px-6 bg-pClr2 text-white rounded-md font-bold"
+            className="py-2 px-4 xl:px-6 duration-200 bg-pClr hover:bg-pClr2 text-white rounded-md font-bold"
           >
             {lang ? <span className="bang">লগইন</span> : 'Log in'}
           </Link>

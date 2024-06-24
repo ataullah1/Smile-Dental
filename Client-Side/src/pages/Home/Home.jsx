@@ -1,6 +1,8 @@
 import BannerContent from '../../Utility/BannerContent';
 import OnlyMobileViewAppointmentForm from '../../Utility/OnlyMobileViewAppointmentForm';
+import AboutSec from '../../components/AboutSec/AboutSec';
 import { Banner } from '../../components/Banner/Banner';
+import ServiceSec from '../../components/ServiceSec/ServiceSec';
 
 const Home = () => {
   return (
@@ -15,9 +17,12 @@ const Home = () => {
         <OnlyMobileViewAppointmentForm />
 
         {/* Start main section  ========= */}
-        <div className="flex flex-col lg:flex-row gap-5 my-14">
-          <div className="w-full lg:w-1/2 min-h-60 bg-red-300"></div>
-          <div className="w-full lg:w-1/2 min-h-60 bg-green-200"></div>
+        <div>
+          {/* About Section ======== */}
+          <AboutSec />
+
+          {/* Out Service section ================ */}
+          <ServiceSec />
         </div>
       </div>
     </div>
