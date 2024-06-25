@@ -7,7 +7,7 @@ import useLang from '../../Hooks/useLang';
 import { FaChevronDown } from 'react-icons/fa';
 import { PropTypes } from 'prop-types';
 
-const Nav = ({ scrolled }) => {
+const Nav = ({ scrolled, handleScrollTop }) => {
   const [menu, setMenu] = useState(false);
   const { toggleLanguage } = useContext(LanguageContext);
   const lang = useLang();
@@ -21,9 +21,14 @@ const Nav = ({ scrolled }) => {
       ${scrolled ? 'shadow-xl shadow-[#4a484845] py-2' : 'py-3'}`}
     >
       <div className=" flex justify-between items-center w-11/12 mx-auto">
-        <button className="text-3xl font-bold w-28 sm:w-36 h-12 rounded-lg border-2 text-slate-600 border-slate-700">
-          Logo
-        </button>
+        <Link to={'/'}>
+          <button
+            onClick={handleScrollTop}
+            className="text-3xl font-bold w-28 sm:w-36 h-12 rounded-lg border-2 text-slate-600 border-slate-700"
+          >
+            Logo
+          </button>
+        </Link>
         <div className="hidden lg:flex lg:gap-2 xl:gap-4 items-center navigation text-slate-900 text-lg">
           <NavLink className="py-2 px-2 hover:text-pClr" to={'/'}>
             {lang ? <span className="bang">হোম</span> : 'Home'}
@@ -308,4 +313,5 @@ const Nav = ({ scrolled }) => {
 export default Nav;
 Nav.propTypes = {
   scrolled: PropTypes.bool,
+  handleScrollTop: PropTypes.func,
 };
