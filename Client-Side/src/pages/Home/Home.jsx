@@ -25,9 +25,7 @@ const Home = () => {
           <ServiceSec />
         </div>
       </div>
-      <div className='py-12 w-full bg-pClr mb-12'>
-
-      </div>
+      <div className="py-12 w-full bg-pClr mb-12"></div>
     </div>
   );
 };
