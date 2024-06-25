@@ -2,6 +2,8 @@ import BannerContent from '../../Utility/BannerContent';
 import OnlyMobileViewAppointmentForm from '../../Utility/OnlyMobileViewAppointmentForm';
 import AboutSec from '../../components/AboutSec/AboutSec';
 import { Banner } from '../../components/Banner/Banner';
+import MiddleBanner from '../../components/MiddleBanner/MiddleBanner';
+import OurDentistSec from '../../components/OurDentistSec/OurDentistSec';
 import ServiceSec from '../../components/ServiceSec/ServiceSec';
 
 const Home = () => {
@@ -25,8 +27,15 @@ const Home = () => {
           <ServiceSec />
         </div>
       </div>
-      <div className='py-12 w-full bg-pClr mb-12'>
 
+      {/* Middle Banner */}
+      <div className="w-full bg-pClr">
+        <MiddleBanner />
+      </div>
+
+      <div className="w-11/12 mx-auto">
+        {/* Our Team */}
+      <OurDentistSec/>
       </div>
     </div>
   );

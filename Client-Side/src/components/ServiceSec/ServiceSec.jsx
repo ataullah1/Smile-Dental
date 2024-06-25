@@ -7,7 +7,7 @@ const ServiceSec = () => {
   return (
     <div>
       <div className="text-center pb-16">
-        <h3 className="md:text-xl font-semibold text-pClr2">
+        <h3 className="text-xl font-semibold text-pClr2">
           {lang ? (
             <span className="bang">আমাদের সেবাসমূহ</span>
           ) : (
@@ -17,7 +17,7 @@ const ServiceSec = () => {
         <h1 className="text-3xl lg:text-4xl py-3 max-w-[600px] mx-auto font-bold text-slate-800">
           {lang ? (
             <span className="bang text-2xl md:text-3xl">
-              আপনার সমস্ত দাঁতের চিকিৎসা এখন এক জায়গায়।
+              আপনার দাঁতের সকল চিকিৎসা এখন এক জায়গায়।
             </span>
           ) : (
             'All your dental treatments are now in one place'
