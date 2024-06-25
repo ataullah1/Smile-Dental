@@ -6,7 +6,12 @@ const ServiceSec = () => {
   const lang = useLang();
   return (
     <div>
-      <div className="text-center pb-16">
+      <div className="text-center pb-16 relative">
+        <img
+          className="absolute top-1/2 -translate-y-2/3 left-1/2 -translate-x-1/2 w-44 md:w-40"
+          src="https://i.ibb.co/XxKfhRs/title-img1.png"
+          alt=""
+        />
         <h3 className="text-xl font-semibold text-pClr2">
           {lang ? (
             <span className="bang">আমাদের সেবাসমূহ</span>

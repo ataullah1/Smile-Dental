@@ -11,7 +11,12 @@ const OurDentistSec = () => {
 
   return (
     <div>
-      <div className="text-center pt-16">
+      <div className="text-center pt-16 pb-8 relative">
+        <img
+          className="absolute top-1/2 -translate-y-24 md:-translate-y-16 left-1/2 -translate-x-1/2 w-48 md:w-40"
+          src="https://i.ibb.co/XxKfhRs/title-img1.png"
+          alt=""
+        />
         <h3 className="text-xl font-semibold text-pClr2">
           {lang ? (
             <span className="bang">আমাদের ডেন্টিস্টগণ</span>
@@ -60,7 +65,7 @@ const OurDentistSec = () => {
             </p>
           </div>
         </div>
-        
+
         <div
           className="min-h-64 w-96 shadow-md rounded-md mr-5 my-10 pt-5"
           style={shadow2}

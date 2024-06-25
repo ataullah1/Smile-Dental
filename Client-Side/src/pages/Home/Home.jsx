@@ -28,13 +28,18 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Middle Banner */}
+      {/* First Middle Banner */}
       <div className="w-full bg-pClr">
         <MiddleBanner />
       </div>
 
       {/* Our Team */}
       <OurDentistSec />
+
+      {/* Second Middle Banner */}
+      <div className="w-full bg-pClr">
+        <MiddleBanner />
+      </div>
 
       <div className="w-11/12 mx-auto"></div>
     </div>
