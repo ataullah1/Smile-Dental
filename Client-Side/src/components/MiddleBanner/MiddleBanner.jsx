@@ -86,7 +86,6 @@ const MiddleBanner = () => {
                 ) : (
                   'Dawatola Branch'
                 )}
-                :
               </p>
               <a
                 href="tel:+8801833-847252"

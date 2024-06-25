@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import useLang from '../../Hooks/useLang';
 import { BsArrowRight } from 'react-icons/bs';
+import { GoGitBranch } from 'react-icons/go';
 
 const Footer = () => {
   const lang = useLang();
@@ -11,6 +12,103 @@ const Footer = () => {
           <div>
             <h1 className="text-3xl font-bold bang text-slate-50 pb-6">
               {lang ? <span className="bang">সরাসরি লিঙ্ক</span> : 'Quick Link'}
+            </h1>
+            <div className="flex flex-col gap-2">
+              <Link
+                to={'/'}
+                className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
+              >
+                <span className="text-xl text-pClr">
+                  <BsArrowRight />
+                </span>
+                {lang ? 'হোম' : 'Home'}
+              </Link>
+              <Link
+                to={'/treatments'}
+                className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
+              >
+                <span className="text-xl text-pClr">
+                  <BsArrowRight />
+                </span>
+                {lang ? 'চিকিৎসা' : 'Treatments'}
+              </Link>
+              <Link
+                to={'/about'}
+                className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
+              >
+                <span className="text-xl text-pClr">
+                  <BsArrowRight />
+                </span>
+                {lang ? 'আমাদের সম্পর্কে' : 'About Us'}
+              </Link>
+              <Link
+                to={'/contact'}
+                className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
+              >
+                <span className="text-xl text-pClr">
+                  <BsArrowRight />
+                </span>
+                {lang ? 'যোগাযোগ' : 'Contact'}
+              </Link>
+              <Link
+                to={'/blogs'}
+                className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
+              >
+                <span className="text-xl text-pClr">
+                  <BsArrowRight />
+                </span>
+                {lang ? 'প্রবন্ধ পড়ুন' : 'Read Blogs'}
+              </Link>
+            </div>
+          </div>
+
+          <div>
+            <h1 className="text-3xl font-bold bang text-slate-50 pb-6">
+              {lang ? <span className="bang">সকল শাখা</span> : 'All branches'}
+            </h1>
+            <div className="flex flex-col gap-2">
+              <Link
+                to={'/'}
+                className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
+              >
+                <span className="text-xl text-pClr">
+                  <GoGitBranch />
+                </span>
+                {lang ? 'মিরপুর শাখা' : 'Mirpur Branch'}
+              </Link>
+              <Link
+                to={'/treatments'}
+                className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
+              >
+                <span className="text-xl text-pClr">
+                  <GoGitBranch />
+                </span>
+                {lang ? 'যাত্রাবাড়ী শাখা' : 'Jatrabari Branch'}
+              </Link>
+              <Link
+                to={'/about'}
+                className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
+              >
+                <span className="text-xl text-pClr">
+                  <GoGitBranch />
+                </span>
+                {lang ? 'বরিশাল শাখা' : 'Barisal Branch'}
+              </Link>
+              <Link
+                to={'/contact'}
+                className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
+              >
+                <span className="text-xl text-pClr">
+                  <GoGitBranch />
+                </span>
+                {lang ? 'ডৌয়াতলা শাখা' : 'Dawatola Branch'}
+              </Link>
+            </div>
+          </div>
+
+          <div>
+            <h1 className="text-3xl font-bold bang text-slate-50 pb-6">
+              {lang ? <span className="bang">যোগাযোগ</span> : 'Contact'}
             </h1>
             <div className="flex flex-col gap-2">
               <Link
