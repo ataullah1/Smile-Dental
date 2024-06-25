@@ -172,31 +172,31 @@ const Footer = () => {
             </h1>
 
             <div className="flex items-center gap-3 text-slate-50 text-xl justify-center">
-              <a
-                href="#"
+              <a target='_blank'
+                href="https://www.facebook.com/bd.smiledental"
                 className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
               >
                 <FaFacebookF />
               </a>
-              <a
-                href="#"
+              <a target='_blank'
+                href="https://www.youtube.com/@smiledentalbd/"
                 className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
               >
                 <FaYoutube />
               </a>
-              <a
-                href="#"
+              <a target='_blank'
+                href="https://www.linkedin.com/company/smile-dental-bd?trk=public_post_feed-actor-name"
                 className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
               >
                 <FaLinkedinIn />
               </a>
-              <a
+              <a target='_blank'
                 href="#"
                 className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
               >
                 <FaInstagram />
               </a>
-              <a
+              <a target='_blank'
                 href="#"
                 className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
               >
