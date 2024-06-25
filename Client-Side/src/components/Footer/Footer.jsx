@@ -3,15 +3,22 @@ import useLang from '../../Hooks/useLang';
 import { BsArrowRight } from 'react-icons/bs';
 import { GoGitBranch } from 'react-icons/go';
 import { IoLocationSharp } from 'react-icons/io5';
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+  FaYoutube,
+} from 'react-icons/fa';
 
 const Footer = () => {
   const lang = useLang();
   return (
     <footer className="text-white">
       <div className="w-full bg-[#091E3E] py-16">
-        <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 gap-1">
           <div>
-            <h1 className="text-3xl font-bold bang text-slate-50 pb-6">
+            <h1 className="text-3xl font-bold bang text-slate-50 pb-2 md:pb-6">
               {lang ? <span className="bang">সরাসরি লিঙ্ক</span> : 'Quick Link'}
             </h1>
             <div className="flex flex-col gap-2">
@@ -64,7 +71,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h1 className="text-3xl font-bold bang text-slate-50 pb-6">
+            <h1 className="text-3xl font-bold bang text-slate-50 pb-2 md:pb-6">
               {lang ? <span className="bang">সকল শাখা</span> : 'Branches'}
             </h1>
             <div className="flex flex-col gap-2">
@@ -108,7 +115,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h1 className="text-3xl font-bold bang text-slate-50 pb-6">
+            <h1 className="text-3xl font-bold bang text-slate-50 pb-2 md:pb-6">
               {lang ? (
                 <span className="bang">যোগাযোগের ঠিকানা</span>
               ) : (
@@ -121,9 +128,80 @@ const Footer = () => {
                   <IoLocationSharp />
                 </span>
                 {lang
-                  ? '০১৪০১-৫৩২০১৮ (মিরপুর-১২)'
+                  ? 'যাত্রাবাড়ী, সায়েদাবাদ / ০১৪০১-৫৩২০১৮'
+                  : 'Jatrabari, Sayedabad / 01401-532018 '}
+              </p>
+              <p className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300">
+                <span className="text-xl text-pClr">
+                  <IoLocationSharp />
+                </span>
+                {lang
+                  ? 'মিরপুর-১২ / ০১৪০১-৫৩২০১৮'
                   : 'Mirpur-12 / 01401-532018 '}
               </p>
+              <p className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300">
+                <span className="text-xl text-pClr">
+                  <IoLocationSharp />
+                </span>
+                {lang
+                  ? 'বরিশাল সিএন্ডবি রোড / ০১৭১৫-১৯২৬৪৮'
+                  : 'Barishal C&B Road / 01715-192648'}
+              </p>
+              <p className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300">
+                <span className="text-xl text-pClr">
+                  <IoLocationSharp />
+                </span>
+                {lang
+                  ? 'ডৌয়াতলা বাজার / ০১৮৩৩-৮৪৭২৫২'
+                  : 'Dawatala Bazar / 01833-847252'}
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <h1 className="border-2 rounded-md p-2 w-48 text-center text-4xl font-bold mx-auto">
+              Logo img
+            </h1>
+
+            <h1 className="text-3xl font-bold bang text-slate-50 pt-7 pb-4">
+              {lang ? (
+                <span className="bang text-2xl">অনুসরণ করুন</span>
+              ) : (
+                'Follow us'
+              )}
+            </h1>
+
+            <div className="flex items-center gap-3 text-slate-50 text-xl justify-center">
+              <a
+                href="#"
+                className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                href="#"
+                className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
+              >
+                <FaYoutube />
+              </a>
+              <a
+                href="#"
+                className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
+              >
+                <FaLinkedinIn />
+              </a>
+              <a
+                href="#"
+                className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="#"
+                className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
+              >
+                <FaTwitter />
+              </a>
             </div>
           </div>
         </div>
