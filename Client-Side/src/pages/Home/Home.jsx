@@ -17,13 +17,16 @@ const Home = () => {
         <OnlyMobileViewAppointmentForm />
 
         {/* Start main section  ========= */}
-        <div className="pb-36">
+        <div className="pb-24">
           {/* About Section ======== */}
           <AboutSec />
 
           {/* Out Service section ================ */}
           <ServiceSec />
         </div>
+      </div>
+      <div className='py-12 w-full bg-pClr mb-12'>
+
       </div>
     </div>
   );
