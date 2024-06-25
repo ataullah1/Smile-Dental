@@ -33,10 +33,10 @@ const Home = () => {
         <MiddleBanner />
       </div>
 
-      <div className="w-11/12 mx-auto">
-        {/* Our Team */}
-      <OurDentistSec/>
-      </div>
+      {/* Our Team */}
+      <OurDentistSec />
+
+      <div className="w-11/12 mx-auto"></div>
     </div>
   );
 };

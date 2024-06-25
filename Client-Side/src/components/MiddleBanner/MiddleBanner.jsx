@@ -15,8 +15,8 @@ const MiddleBanner = () => {
       <div className="absolute inset-0 bg-pClr opacity-85" />
 
       {/* Content */}
-      <div className="relative w-11/12 mx-auto text-slate-100 text-center flex items-center justify-between flex-col md:flex-row gap-10">
-        <div className="w-full md:w-3/4">
+      <div className="relative w-11/12 mx-auto text-slate-100 text-center flex items-center justify-between flex-col lg:flex-row gap-5">
+        <div className="w-full lg:w-[70%]">
           <h1 className="text-2xl border-b-2 border-slate-100 inline-block text-center font-bold mb-8">
             {lang ? (
               <span className="bang">যোগাযোগের নম্বর</span>
@@ -115,7 +115,7 @@ const MiddleBanner = () => {
           </div>
         </div>
         <div className="h-[1px] w-full md:hidden bg-slate-100 rounded-full" />
-        <div className="w-full md:w-1/4">
+        <div className="w-full lg:w-[30%] border-2 border-slate-100 rounded-md p-3">
           <MiddleBannerForm />
         </div>
       </div>
