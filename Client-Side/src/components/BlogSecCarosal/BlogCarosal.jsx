@@ -21,7 +21,24 @@ export default function BlogCarosal() {
           clickable: true,
         }}
         modules={[FreeMode, Pagination]}
-        className="mySwiper "
+        className="mySwiper"
+        breakpoints={{
+          // when window width is <= 640px
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          // when window width is <= 768px
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          // when window width is <= 1024px
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }}
       >
         <SwiperSlide>
           <div>
