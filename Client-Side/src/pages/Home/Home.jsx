@@ -2,7 +2,9 @@ import BannerContent from '../../Utility/BannerContent';
 import OnlyMobileViewAppointmentForm from '../../Utility/OnlyMobileViewAppointmentForm';
 import AboutSec from '../../components/AboutSec/AboutSec';
 import { Banner } from '../../components/Banner/Banner';
+import BlogSec from '../../components/BlogSec/BlogSec';
 import MiddleBanner from '../../components/MiddleBanner/MiddleBanner';
+import SecondMiddleBanner from '../../components/MiddleBanner/SecondMiddleBanner';
 import OurDentistSec from '../../components/OurDentistSec/OurDentistSec';
 import ServiceSec from '../../components/ServiceSec/ServiceSec';
 
@@ -37,11 +39,12 @@ const Home = () => {
       <OurDentistSec />
 
       {/* Second Middle Banner */}
-      <div className="w-full bg-pClr">
-        <MiddleBanner />
-      </div>
 
-      <div className="w-11/12 mx-auto"></div>
+      <SecondMiddleBanner />
+
+      <div className="w-11/12 mx-auto">
+        <BlogSec />
+      </div>
     </div>
   );
 };

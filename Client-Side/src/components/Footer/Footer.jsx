@@ -10,11 +10,34 @@ import {
   FaTwitter,
   FaYoutube,
 } from 'react-icons/fa';
+import { FaArrowRightLong } from 'react-icons/fa6';
 
 const Footer = () => {
   const lang = useLang();
   return (
     <footer className="text-white">
+      <div
+        style={{
+          background: 'linear-gradient(to bottom, #ffffff 50%, #091E3E 50%)',
+        }}
+      >
+        <div className="w-11/12 mx-auto py-8 px-6 bg-pClr text-center rounded-md">
+          <h1 className="text-2xl md:text-4xl font-bold flex flex-col md:flex-row items-center gap-2 justify-center">
+            {lang ? (
+              <span className="bang">আজই আমাদের সাথে যোগাযোগ করুন</span>
+            ) : (
+              'Get in touch with us today'
+            )}
+            <span className="pr-3 rotate-90 md:rotate-0">
+              <FaArrowRightLong />
+            </span>
+            <a href="tel:+8801401-532018">
+              {lang ? '০১৪০১-৫৩২০১৮' : '01401-532018'}
+            </a>
+          </h1>
+        </div>
+      </div>
+      
       <div className="w-full bg-[#091E3E] py-16">
         <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 gap-1">
           <div>
@@ -172,31 +195,36 @@ const Footer = () => {
             </h1>
 
             <div className="flex items-center gap-3 text-slate-50 text-xl justify-center">
-              <a target='_blank'
+              <a
+                target="_blank"
                 href="https://www.facebook.com/bd.smiledental"
                 className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
               >
                 <FaFacebookF />
               </a>
-              <a target='_blank'
+              <a
+                target="_blank"
                 href="https://www.youtube.com/@smiledentalbd/"
                 className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
               >
                 <FaYoutube />
               </a>
-              <a target='_blank'
+              <a
+                target="_blank"
                 href="https://www.linkedin.com/company/smile-dental-bd?trk=public_post_feed-actor-name"
                 className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
               >
                 <FaLinkedinIn />
               </a>
-              <a target='_blank'
+              <a
+                target="_blank"
                 href="#"
                 className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
               >
                 <FaInstagram />
               </a>
-              <a target='_blank'
+              <a
+                target="_blank"
                 href="#"
                 className="p-2 bg-pClr hover:bg-pClr2 rounded hover:scale-125 duration-300"
               >

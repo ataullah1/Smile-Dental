@@ -33,7 +33,7 @@ const Root = () => {
       {/* GO to Up */}
       <button
         onClick={handleScrollTop}
-        className={`${
+        className={`animate-bounce hover:animate-none z-50 ${
           scrolled
             ? 'fixed bottom-10 hover:scale-105 duration-300 right-6 cursor-pointer hover:-translate-y-2'
             : 'translate-x-44 duration-500'
