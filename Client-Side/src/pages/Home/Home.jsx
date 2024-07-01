@@ -6,6 +6,7 @@ import BlogSec from '../../components/BlogSec/BlogSec';
 import MiddleBanner from '../../components/MiddleBanner/MiddleBanner';
 import SecondMiddleBanner from '../../components/MiddleBanner/SecondMiddleBanner';
 import OurDentistSec from '../../components/OurDentistSec/OurDentistSec';
+import ReviewSec from '../../components/ReviewSec/ReviewSec';
 import ServiceSec from '../../components/ServiceSec/ServiceSec';
 
 const Home = () => {
@@ -44,6 +45,7 @@ const Home = () => {
 
       <div className="w-11/12 mx-auto">
         <BlogSec />
+        <ReviewSec />
       </div>
     </div>
   );
