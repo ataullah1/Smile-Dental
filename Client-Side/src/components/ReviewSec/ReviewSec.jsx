@@ -27,6 +27,10 @@ const ReviewSec = () => {
           )}
         </h1>
       </div>
+      <div className='flex flex-col md:flex-row gap-5'>
+        <div className='w-full lg:w-8/12'></div>
+        <div className='w-full lg:w-4/12'></div>
+      </div>
     </div>
   );
 };
