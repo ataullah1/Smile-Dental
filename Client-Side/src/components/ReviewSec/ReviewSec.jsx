@@ -20,16 +20,20 @@ const ReviewSec = () => {
         <h1 className="text-3xl lg:text-4xl py-3 max-w-[600px] mx-auto font-bold text-slate-800">
           {lang ? (
             <span className="bang text-2xl md:text-3xl">
-             রোগীরা আমাদের সম্পর্কে যা বলে।
+              রোগীরা আমাদের সম্পর্কে যা বলে।
             </span>
           ) : (
             'What patients say about us.'
           )}
         </h1>
       </div>
-      <div className='flex flex-col md:flex-row gap-5'>
-        <div className='w-full lg:w-8/12'></div>
-        <div className='w-full lg:w-4/12'></div>
+      <div className="flex flex-col md:flex-row gap-5">
+        <div className="w-full lg:w-8/12"></div>
+        <div className="w-full lg:w-4/12">
+          <form action="">
+            <input type="text" placeholder="your name" />
+          </form>
+        </div>
       </div>
     </div>
   );
