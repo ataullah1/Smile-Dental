@@ -31,7 +31,7 @@ const ReviewSec = () => {
         <div className="w-full lg:w-8/12"></div>
         <div className="w-full lg:w-4/12">
           <form action="">
-            <input type="text" placeholder="your name" />
+            <textarea name="review" id="" placeholder="Your Review" className='w-full min-h-24 bg-transparent rounded-md border border-slate-300 p-3'></textarea>
           </form>
         </div>
       </div>
