@@ -1,12 +1,12 @@
-import Marquee from 'react-fast-marquee';
-import useLang from '../../Hooks/useLang';
-import { Link } from 'react-router-dom';
+import Marquee from "react-fast-marquee";
+import useLang from "../../Hooks/useLang";
+import { Link } from "react-router-dom";
 
 const OurDentistSec = () => {
   const lang = useLang();
 
   const shadow2 = {
-    boxShadow: '0 20px 20px rgba(0, 0, 0, 0.15)', // Taller and boxier look
+    boxShadow: "0 20px 20px rgba(0, 0, 0, 0.15)", // Taller and boxier look
   };
 
   return (
@@ -21,7 +21,7 @@ const OurDentistSec = () => {
           {lang ? (
             <span className="bang">আমাদের ডেন্টিস্টগণ</span>
           ) : (
-            'Our Dentists'
+            "Our Dentists"
           )}
         </h3>
         <h1 className="text-3xl lg:text-4xl py-3 max-w-[600px] mx-auto font-bold text-slate-800">
@@ -30,7 +30,7 @@ const OurDentistSec = () => {
               আমাদের বিশেষজ্ঞ, বন্ধুত্বপূর্ণ ডেন্টিস্টগণ।
             </span>
           ) : (
-            'Our expert, friendly dentists.'
+            "Our expert, friendly dentists."
           )}
         </h1>
       </div>
@@ -51,7 +51,7 @@ const OurDentistSec = () => {
               {lang ? (
                 <span className="bang">ডাঃ অনাঘা মেনেন</span>
               ) : (
-                'Dr.Anagha Menen'
+                "Dr.Anagha Menen"
               )}
             </h1>
             <p className="">
@@ -60,7 +60,7 @@ const OurDentistSec = () => {
                   বিডিএস (ঢাবি) ডেন্টাল সার্জন স্মাইল ডেন্টাল কেয়ার
                 </span>
               ) : (
-                'BDS (DU) Dental Surgeon Smile Dental Care'
+                "BDS (DU) Dental Surgeon Smile Dental Care"
               )}
             </p>
           </div>
@@ -81,7 +81,7 @@ const OurDentistSec = () => {
               {lang ? (
                 <span className="bang">ডাঃ নিশাত তাসনিম বর্ষা</span>
               ) : (
-                'Dr. Nishat Tasnim Barsha'
+                "Dr. Nishat Tasnim Barsha"
               )}
             </h1>
             <p className="">
@@ -91,7 +91,7 @@ const OurDentistSec = () => {
                   বিশ্ববিদ্যালয়) - ডিটি. কেন্দ্রীয় পুলিশ হাসপাতাল, ঢাকা
                 </span>
               ) : (
-                'DMTD (SMF, Dhaka ) Bachelor of Dentistry (Chattogram Medical University) - DT. Central Police Hospital , Dhaka'
+                "DMTD (SMF, Dhaka ) Bachelor of Dentistry (Chattogram Medical University) - DT. Central Police Hospital , Dhaka"
               )}
             </p>
           </div>
@@ -112,7 +112,7 @@ const OurDentistSec = () => {
               {lang ? (
                 <span className="bang">ডাঃ নিশাত তাসনিম বর্ষা</span>
               ) : (
-                'Dr. Nishat Tasnim Barsha'
+                "Dr. Nishat Tasnim Barsha"
               )}
             </h1>
             <p className="">
@@ -121,7 +121,7 @@ const OurDentistSec = () => {
                   বিডিএস (ঢাবি) ডেন্টাল সার্জন স্মাইল ডেন্টাল কেয়ার
                 </span>
               ) : (
-                'BDS (DU) Dental Surgeon Smile Dental Care'
+                "BDS (DU) Dental Surgeon Smile Dental Care"
               )}
             </p>
           </div>
@@ -142,7 +142,7 @@ const OurDentistSec = () => {
               {lang ? (
                 <span className="bang">ডাঃ ইসমাইল হোসেন মামুন</span>
               ) : (
-                'Dr. Ismail Hosen Mamun'
+                "Dr. Ismail Hosen Mamun"
               )}
             </h1>
             <p className="">
@@ -152,7 +152,7 @@ const OurDentistSec = () => {
                   বিশ্ববিদ্যালয়) - ডিটি. কেন্দ্রীয় পুলিশ হাসপাতাল, ঢাকা
                 </span>
               ) : (
-                'DMTD (SMF, Dhaka ) Bachelor of Dentistry (Chattogram Medical University) -  DT. Central Police Hospital , Dhaka'
+                "DMTD (SMF, Dhaka ) Bachelor of Dentistry (Chattogram Medical University) -  DT. Central Police Hospital , Dhaka"
               )}
             </p>
           </div>
@@ -160,7 +160,7 @@ const OurDentistSec = () => {
       </Marquee>
       <div className="w-full text-center py-6  duration-200 hover:-translate-y-2">
         <Link
-          to={'/dentists'}
+          to={"/dentists"}
           className="py-2 px-6 bg-pClr hover:bg-pClr2 rounded-md font-semibold text-slate-100 duration-200"
         >
           View All Dentists
