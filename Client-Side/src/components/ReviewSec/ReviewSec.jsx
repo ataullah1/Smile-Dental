@@ -1,4 +1,4 @@
-import useLang from '../../Hooks/useLang';
+import useLang from "../../Hooks/useLang";
 
 const ReviewSec = () => {
   const lang = useLang();
@@ -14,7 +14,7 @@ const ReviewSec = () => {
           {lang ? (
             <span className="bang">রোগীদের রিভিউ</span>
           ) : (
-            'Patient Reviews'
+            "Patient Reviews"
           )}
         </h3>
         <h1 className="text-3xl lg:text-4xl py-3 max-w-[600px] mx-auto font-bold text-slate-800">
@@ -23,16 +23,15 @@ const ReviewSec = () => {
               রোগীরা আমাদের সম্পর্কে যা বলে।
             </span>
           ) : (
-            'What patients say about us.'
+            "What patients say about us."
           )}
         </h1>
       </div>
-      <div className="flex flex-col md:flex-row gap-5">
-        <div className="w-full lg:w-8/12"></div>
-        <div className="w-full lg:w-4/12">
-          <form action="">
-            <input type="text" placeholder="your name" />
-          </form>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="w-full">
+          <div className="flex">
+            <div></div>
+          </div>
         </div>
       </div>
     </div>
