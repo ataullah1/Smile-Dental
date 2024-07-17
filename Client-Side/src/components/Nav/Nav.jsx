@@ -1,11 +1,11 @@
-import { useContext, useState } from 'react';
-import { CgClose, CgMenuRightAlt } from 'react-icons/cg';
-import { Link, NavLink } from 'react-router-dom';
-import { LanguageContext } from '../../provider/LanguageContext';
-import { MdGTranslate } from 'react-icons/md';
-import useLang from '../../Hooks/useLang';
-import { FaChevronDown } from 'react-icons/fa';
-import { PropTypes } from 'prop-types';
+import { useContext, useState } from "react";
+import { CgClose, CgMenuRightAlt } from "react-icons/cg";
+import { Link, NavLink } from "react-router-dom";
+import { LanguageContext } from "../../provider/LanguageContext";
+import { MdGTranslate } from "react-icons/md";
+import useLang from "../../Hooks/useLang";
+import { FaChevronDown } from "react-icons/fa";
+import { PropTypes } from "prop-types";
 
 const Nav = ({ scrolled, handleScrollTop }) => {
   const [menu, setMenu] = useState(false);
@@ -18,10 +18,10 @@ const Nav = ({ scrolled, handleScrollTop }) => {
     // <div className="fixed left-0 top-0 z-50 w-full" >
     <div
       className={`w-full fixed top-0 left-0 z-[900] duration-300 bg-[#ffffff]
-      ${scrolled ? 'shadow-xl shadow-[#4a484845] py-2' : 'py-3'}`}
+      ${scrolled ? "shadow-xl shadow-[#4a484845] py-2" : "py-3"}`}
     >
       <div className=" flex justify-between items-center w-11/12 mx-auto">
-        <Link to={'/'}>
+        <Link to={"/"}>
           <button
             onClick={handleScrollTop}
             className="text-3xl font-bold w-28 sm:w-36 h-12 rounded-lg border-2 text-slate-600 border-slate-700"
@@ -30,96 +30,96 @@ const Nav = ({ scrolled, handleScrollTop }) => {
           </button>
         </Link>
         <div className="hidden lg:flex lg:gap-2 xl:gap-4 items-center navigation text-slate-900 text-lg">
-          <NavLink className="py-2 px-2 hover:text-pClr" to={'/'}>
-            {lang ? <span className="bang">হোম</span> : 'Home'}
+          <NavLink className="py-2 px-2 hover:text-pClr" to={"/"}>
+            {lang ? <span className="bang">হোম</span> : "Home"}
           </NavLink>
 
           <div className="group relative cursor-pointer py-2 px-2">
             <button className="flex items-center gap-2 hover:text-pClr">
-              {lang ? <span className="bang">শাখা সমূহ</span> : 'Branches'}
+              {lang ? <span className="bang">শাখা সমূহ</span> : "Branches"}
               <span className="hover:pt-2 hover:text-pClr duration-150 text-slate-600">
                 <FaChevronDown />
               </span>
             </button>
             <div className="invisible absolute top-9 pt-5 pb-2 left-1/2 -translate-x-1/2 z-[900] flex w-52 flex-col bg-[#F5F4F3] rounded-b-md group-hover:visible text-center dropdownMenu">
-              <NavLink className="py-2 px-2 hover:text-pClr" to={'/jatrabari'}>
+              <NavLink className="py-2 px-2 hover:text-pClr" to={"/jatrabari"}>
                 {lang ? (
                   <span className="bang">ঢাকা যাত্রাবাড়ী শাখা</span>
                 ) : (
-                  'Dhaka Jatrabari Branch'
+                  "Dhaka Jatrabari Branch"
                 )}
               </NavLink>
-              <NavLink className="py-2 px-2 hover:text-pClr" to={'/mirpur'}>
+              <NavLink className="py-2 px-2 hover:text-pClr" to={"/mirpur"}>
                 {lang ? (
                   <span className="bang">ঢাকা মিরপুর শাখা</span>
                 ) : (
-                  'Dhaka Mirpur Branch'
+                  "Dhaka Mirpur Branch"
                 )}
               </NavLink>
-              <NavLink className="py-2 px-2 hover:text-pClr" to={'/barishal'}>
+              <NavLink className="py-2 px-2 hover:text-pClr" to={"/barishal"}>
                 {lang ? (
                   <span className="bang">বরিশাল চৌমাথা শাখা</span>
                 ) : (
-                  'Barishal Branch'
+                  "Barishal Branch"
                 )}
               </NavLink>
-              <NavLink className="py-2 px-2 hover:text-pClr" to={'/dawatola'}>
+              <NavLink className="py-2 px-2 hover:text-pClr" to={"/Dawatala"}>
                 {lang ? (
                   <span className="bang">বামনা-ডৌয়াতলা শাখা</span>
                 ) : (
-                  'Dawatola Branch'
+                  "Dawatala Branch"
                 )}
               </NavLink>
             </div>
           </div>
 
-          <NavLink className="py-2 px-2 hover:text-pClr" to={'/treatments'}>
-            {lang ? <span className="bang">চিকিৎসা</span> : 'Treatments'}
+          <NavLink className="py-2 px-2 hover:text-pClr" to={"/treatments"}>
+            {lang ? <span className="bang">চিকিৎসা</span> : "Treatments"}
           </NavLink>
 
           <div className="group relative cursor-pointer py-2 px-2">
             <button className="flex items-center gap-2 hover:text-pClr">
-              {lang ? <span className="bang">অন্যান্য</span> : 'Others'}
+              {lang ? <span className="bang">অন্যান্য</span> : "Others"}
               <span className="hover:pt-2 hover:text-pClr duration-150 text-slate-600">
                 <FaChevronDown />
               </span>
             </button>
             <div className="invisible absolute top-9 pt-5 pb-2 left-1/2 -translate-x-1/2 z-[900] flex w-44 flex-col bg-[#F5F4F3] rounded-b-md group-hover:visible text-center dropdownMenu">
-              <NavLink className="py-2 px-2 hover:text-pClr" to={'/blogs'}>
+              <NavLink className="py-2 px-2 hover:text-pClr" to={"/blogs"}>
                 {lang ? (
                   <span className="bang">প্রবন্ধ পড়ুন</span>
                 ) : (
-                  'Read Blogs'
+                  "Read Blogs"
                 )}
               </NavLink>
-              <NavLink className="py-2 px-2 hover:text-pClr" to={'/dentists'}>
+              <NavLink className="py-2 px-2 hover:text-pClr" to={"/dentists"}>
                 {lang ? (
                   <span className="bang">আমাদের ডেন্টিসগণ</span>
                 ) : (
-                  'Our Dentists'
+                  "Our Dentists"
                 )}
               </NavLink>
               <NavLink
                 className="py-2 px-2 hover:text-pClr"
-                to={'/appointment'}
+                to={"/appointment"}
               >
                 {lang ? (
                   <span className="bang">অ্যাপয়েন্টমেন্ট</span>
                 ) : (
-                  'Appointment'
+                  "Appointment"
                 )}
               </NavLink>
-              <NavLink className="py-2 px-2 hover:text-pClr" to={'/carrer'}>
-                {lang ? <span className="bang">আমাদের চাকরি</span> : 'Our Jobs'}
+              <NavLink className="py-2 px-2 hover:text-pClr" to={"/carrer"}>
+                {lang ? <span className="bang">আমাদের চাকরি</span> : "Our Jobs"}
               </NavLink>
             </div>
           </div>
 
-          <NavLink className="py-2 px-2 hover:text-pClr" to={'/about'}>
-            {lang ? <span className="bang">আমাদের সম্পর্কে</span> : 'About Us'}
+          <NavLink className="py-2 px-2 hover:text-pClr" to={"/about"}>
+            {lang ? <span className="bang">আমাদের সম্পর্কে</span> : "About Us"}
           </NavLink>
-          <NavLink className="py-2 px-2 hover:text-pClr" to={'/contact'}>
-            {lang ? <span className="bang">যোগাযোগ</span> : 'Contact'}
+          <NavLink className="py-2 px-2 hover:text-pClr" to={"/contact"}>
+            {lang ? <span className="bang">যোগাযোগ</span> : "Contact"}
           </NavLink>
         </div>
         <div className="flex items-center gap-2 sm:gap-4 relative">
@@ -131,14 +131,14 @@ const Nav = ({ scrolled, handleScrollTop }) => {
             <span className="sm:text-2xl">
               <MdGTranslate />
             </span>
-            {lang ? 'EN' : <span className="bang">বাং</span>}
+            {lang ? "EN" : <span className="bang">বাং</span>}
           </button>
           {/* appoinment btn */}
           <Link
-            to={'/login'}
+            to={"/login"}
             className="py-2 px-4 xl:px-6 duration-200 bg-pClr hover:bg-pClr2 text-white rounded-md font-bold"
           >
-            {lang ? <span className="bang">লগইন</span> : 'Log in'}
+            {lang ? <span className="bang">লগইন</span> : "Log in"}
           </Link>
 
           {/* Menu Btn */}
@@ -161,14 +161,14 @@ const Nav = ({ scrolled, handleScrollTop }) => {
               <NavLink
                 onClick={() => setMenu(!menu)}
                 className="py-2 px-2 hover:text-pClr"
-                to={'/'}
+                to={"/"}
               >
-                {lang ? <span className="bang">হোম</span> : 'Home'}
+                {lang ? <span className="bang">হোম</span> : "Home"}
               </NavLink>
 
               <div className="group relative cursor-pointer py-2 px-2">
                 <button className="flex items-center gap-2 hover:text-pClr">
-                  {lang ? <span className="bang">শাখা সমূহ</span> : 'Branches'}
+                  {lang ? <span className="bang">শাখা সমূহ</span> : "Branches"}
                   <span className="hover:pt-2 hover:text-pClr duration-150 text-slate-600">
                     <FaChevronDown />
                   </span>
@@ -177,45 +177,45 @@ const Nav = ({ scrolled, handleScrollTop }) => {
                   <NavLink
                     onClick={() => setMenu(!menu)}
                     className="py-2 px-2 hover:text-pClr"
-                    to={'/jatrabari'}
+                    to={"/jatrabari"}
                   >
                     {lang ? (
                       <span className="bang">ঢাকা যাত্রাবাড়ী শাখা</span>
                     ) : (
-                      'Dhaka Jatrabari Branch'
+                      "Dhaka Jatrabari Branch"
                     )}
                   </NavLink>
                   <NavLink
                     onClick={() => setMenu(!menu)}
                     className="py-2 px-2 hover:text-pClr"
-                    to={'/mirpur'}
+                    to={"/mirpur"}
                   >
                     {lang ? (
                       <span className="bang">ঢাকা মিরপুর শাখা</span>
                     ) : (
-                      'Dhaka Mirpur Branch'
+                      "Dhaka Mirpur Branch"
                     )}
                   </NavLink>
                   <NavLink
                     onClick={() => setMenu(!menu)}
                     className="py-2 px-2 hover:text-pClr"
-                    to={'/barishal'}
+                    to={"/barishal"}
                   >
                     {lang ? (
                       <span className="bang">বরিশাল চৌমাথা শাখা</span>
                     ) : (
-                      'Barishal Branch'
+                      "Barishal Branch"
                     )}
                   </NavLink>
                   <NavLink
                     onClick={() => setMenu(!menu)}
                     className="py-2 px-2 hover:text-pClr"
-                    to={'/dawatola'}
+                    to={"/Dawatala"}
                   >
                     {lang ? (
                       <span className="bang">বামনা-ডৌয়াতলা শাখা</span>
                     ) : (
-                      'Dawatola Branch'
+                      "Dawatala Branch"
                     )}
                   </NavLink>
                 </div>
@@ -224,14 +224,14 @@ const Nav = ({ scrolled, handleScrollTop }) => {
               <NavLink
                 onClick={() => setMenu(!menu)}
                 className="py-2 px-2 hover:text-pClr"
-                to={'/treatments'}
+                to={"/treatments"}
               >
-                {lang ? <span className="bang">চিকিৎসা</span> : 'Treatments'}
+                {lang ? <span className="bang">চিকিৎসা</span> : "Treatments"}
               </NavLink>
 
               <div className="group relative cursor-pointer py-2 px-2">
                 <button className="flex items-center gap-2 hover:text-pClr">
-                  {lang ? <span className="bang">অন্যান্য</span> : 'Others'}
+                  {lang ? <span className="bang">অন্যান্য</span> : "Others"}
                   <span className="hover:pt-2 hover:text-pClr duration-150 text-slate-600">
                     <FaChevronDown />
                   </span>
@@ -240,45 +240,45 @@ const Nav = ({ scrolled, handleScrollTop }) => {
                   <NavLink
                     onClick={() => setMenu(!menu)}
                     className="py-2 px-2 hover:text-pClr"
-                    to={'/blogs'}
+                    to={"/blogs"}
                   >
                     {lang ? (
                       <span className="bang">প্রবন্ধ পড়ুন</span>
                     ) : (
-                      'Read Blogs'
+                      "Read Blogs"
                     )}
                   </NavLink>
                   <NavLink
                     onClick={() => setMenu(!menu)}
                     className="py-2 px-2 hover:text-pClr"
-                    to={'/dentists'}
+                    to={"/dentists"}
                   >
                     {lang ? (
                       <span className="bang">আমাদের ডেন্টিসগণ</span>
                     ) : (
-                      'Our Dentists'
+                      "Our Dentists"
                     )}
                   </NavLink>
                   <NavLink
                     onClick={() => setMenu(!menu)}
                     className="py-2 px-2 hover:text-pClr"
-                    to={'/appointment'}
+                    to={"/appointment"}
                   >
                     {lang ? (
                       <span className="bang">অ্যাপয়েন্টমেন্ট</span>
                     ) : (
-                      'Appointment'
+                      "Appointment"
                     )}
                   </NavLink>
                   <NavLink
                     onClick={() => setMenu(!menu)}
                     className="py-2 px-2 hover:text-pClr"
-                    to={'/dentists'}
+                    to={"/dentists"}
                   >
                     {lang ? (
                       <span className="bang">আমাদের চাকরি</span>
                     ) : (
-                      'carrer'
+                      "carrer"
                     )}
                   </NavLink>
                 </div>
@@ -287,20 +287,20 @@ const Nav = ({ scrolled, handleScrollTop }) => {
               <NavLink
                 onClick={() => setMenu(!menu)}
                 className="py-2 px-2 hover:text-pClr"
-                to={'/about'}
+                to={"/about"}
               >
                 {lang ? (
                   <span className="bang">আমাদের সম্পর্কে</span>
                 ) : (
-                  'About Us'
+                  "About Us"
                 )}
               </NavLink>
               <NavLink
                 onClick={() => setMenu(!menu)}
                 className="py-2 px-2 hover:text-pClr"
-                to={'/contact'}
+                to={"/contact"}
               >
-                {lang ? <span className="bang">যোগাযোগ</span> : 'Contact'}
+                {lang ? <span className="bang">যোগাযোগ</span> : "Contact"}
               </NavLink>
             </div>
           )}

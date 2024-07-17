@@ -1,5 +1,5 @@
-import { useForm } from 'react-hook-form';
-import useLang from '../Hooks/useLang';
+import { useForm } from "react-hook-form";
+import useLang from "../Hooks/useLang";
 
 const BannerAppiontmentFrom = () => {
   const lang = useLang();
@@ -9,7 +9,7 @@ const BannerAppiontmentFrom = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log('Form Data: ', data);
+  const onSubmit = (data) => console.log("Form Data: ", data);
   console.log(errors);
 
   return (
@@ -22,8 +22,8 @@ const BannerAppiontmentFrom = () => {
         <input
           type="text"
           className="py-2 w-full rounded bg-slate-100 border border-slate-100 focus:outline-none outline-none text-slate-700 placeholder-slate-700 px-3"
-          placeholder={lang ? 'আপনার নাম' : 'Your Name'}
-          {...register('name', {
+          placeholder={lang ? "আপনার নাম" : "Your Name"}
+          {...register("name", {
             required: true,
             minLength: 3,
             maxLength: 20,
@@ -32,8 +32,8 @@ const BannerAppiontmentFrom = () => {
         <input
           type="tel"
           className="py-2 w-full rounded bg-slate-100 border border-slate-100 focus:outline-none outline-none text-slate-700 placeholder-slate-700 px-3"
-          placeholder={lang ? 'মোবাইল নাম্বার' : 'Mobile Number'}
-          {...register('number', {
+          placeholder={lang ? "মোবাইল নাম্বার" : "Mobile Number"}
+          {...register("number", {
             required: true,
             minLength: 11,
             maxLength: 11,
@@ -41,55 +41,55 @@ const BannerAppiontmentFrom = () => {
         />
         <select
           className="py-2 w-full rounded bg-slate-100 border border-slate-100 focus:outline-none outline-none text-slate-700 placeholder-slate-700 px-3"
-          {...register('Branch', { required: true })}
+          {...register("Branch", { required: true })}
         >
           <option value="" disabled selected>
-            {lang ? 'একটি শাখা নির্বাচন করুন' : 'Select a Branch'}
+            {lang ? "একটি শাখা নির্বাচন করুন" : "Select a Branch"}
           </option>
           <option value="Dhaka Jatrabari Branch">
-            {lang ? 'ঢাকা যাত্রাবাড়ী শাখা' : 'Dhaka Jatrabari Branch'}
+            {lang ? "ঢাকা যাত্রাবাড়ী শাখা" : "Dhaka Jatrabari Branch"}
           </option>
           <option value="Dhaka Jatrabari Branch">
-            {lang ? 'ঢাকা মিরপুর শাখা' : 'Dhaka Mirpur Branch'}
+            {lang ? "ঢাকা মিরপুর শাখা" : "Dhaka Mirpur Branch"}
           </option>
           <option value="Dhaka Jatrabari Branch">
-            {lang ? 'বরিশাল চৌমাথা শাখা' : 'Barishal Branch'}
+            {lang ? "বরিশাল চৌমাথা শাখা" : "Barishal Branch"}
           </option>
           <option value="Dhaka Jatrabari Branch">
-            {lang ? 'বামনা-ডৌয়াতলা শাখা' : 'Dawatola Branch'}
+            {lang ? "বামনা-ডৌয়াতলা শাখা" : "Dawatala Branch"}
           </option>
         </select>
         <select
           className="py-2 w-full rounded bg-slate-100 border border-slate-100 focus:outline-none outline-none text-slate-700 placeholder-slate-700 px-3"
-          {...register('Branch', { required: true })}
+          {...register("Branch", { required: true })}
         >
           <option value="" disabled selected>
-            {lang ? 'আপনি কি চিকিৎসা নিতে চান?' : 'Do you want treatment?'}
+            {lang ? "আপনি কি চিকিৎসা নিতে চান?" : "Do you want treatment?"}
           </option>
           <option value="Root Canal">Root Canal</option>
           <option value="Dental Consultations">Dental Consultations</option>
           <option value="Scaling">Scaling</option>
           <option value="Orthodontist">Orthodontist</option>
-          <option value="Orthodontist">{lang ? 'অন্যান্য' : 'Others'}</option>
+          <option value="Orthodontist">{lang ? "অন্যান্য" : "Others"}</option>
         </select>
         <select
           className="py-2 w-full rounded bg-slate-100 border border-slate-100 focus:outline-none outline-none text-slate-700 placeholder-slate-700 px-3"
-          {...register('Branch', { required: true })}
+          {...register("Branch", { required: true })}
         >
           <option value="" disabled selected>
-            {lang ? 'ডাক্তার নির্বাচন করুন' : 'Select a Doctor'}
+            {lang ? "ডাক্তার নির্বাচন করুন" : "Select a Doctor"}
           </option>
           <option value="DT Ismail Hosen Mamun">
-            {lang ? 'ডিটি ইসমাইল হোসেন মামুন' : 'DT Ismail Hosen Mamun'}
+            {lang ? "ডিটি ইসমাইল হোসেন মামুন" : "DT Ismail Hosen Mamun"}
           </option>
           <option value="DT Rafiul Islam">
-            {lang ? 'ডিটি রাফিউল ইসলাম' : 'DT Rafiul Islam'}
+            {lang ? "ডিটি রাফিউল ইসলাম" : "DT Rafiul Islam"}
           </option>
           <option value="DT Kaniz Fatema">
-            {lang ? 'ডিটি কানিজ ফাতেমা' : 'DT Kaniz Fatema'}
+            {lang ? "ডিটি কানিজ ফাতেমা" : "DT Kaniz Fatema"}
           </option>
           <option value="DT Mst. Muslima">
-            {lang ? 'ডিটি মোসাঃ মুসলিমা' : 'DT Mst. Muslima'}
+            {lang ? "ডিটি মোসাঃ মুসলিমা" : "DT Mst. Muslima"}
           </option>
         </select>
 
@@ -98,19 +98,19 @@ const BannerAppiontmentFrom = () => {
             type="date"
             className="py-2 w-full rounded bg-slate-100 border border-slate-100 focus:outline-none outline-none text-slate-700 placeholder-slate-700 px-3"
             placeholder="date"
-            {...register('date', {})}
+            {...register("date", {})}
           />
           <input
             type="time"
             className="py-2 w-full rounded bg-slate-100 border border-slate-100 focus:outline-none outline-none text-slate-700 placeholder-slate-700 px-3"
             placeholder="time"
-            {...register('time', {})}
+            {...register("time", {})}
           />
         </div>
         <input
           className="py-2 w-full rounded bg-pClr2 font-bold cursor-pointer hover:scale-95 active:scale-100 duration-200 tracking-wider text-white "
           type="submit"
-          value={lang ? 'সাবমিট করুন' : 'submit'}
+          value={lang ? "সাবমিট করুন" : "submit"}
         />
       </form>
     </div>

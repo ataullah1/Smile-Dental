@@ -1,6 +1,6 @@
-import { FiPhoneCall } from 'react-icons/fi';
-import useLang from '../../Hooks/useLang';
-import MiddleBannerForm from '../../Utility/MiddleBannerForm';
+import { FiPhoneCall } from "react-icons/fi";
+import useLang from "../../Hooks/useLang";
+import MiddleBannerForm from "../../Utility/MiddleBannerForm";
 
 const MiddleBanner = () => {
   const lang = useLang();
@@ -21,7 +21,7 @@ const MiddleBanner = () => {
             {lang ? (
               <span className="bang">যোগাযোগের নম্বর</span>
             ) : (
-              'Contact Numbers'
+              "Contact Numbers"
             )}
           </h1>
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-y-10">
@@ -30,7 +30,7 @@ const MiddleBanner = () => {
                 {lang ? (
                   <span className="bang">মিরপুর শাখা</span>
                 ) : (
-                  'Mirpur Branch'
+                  "Mirpur Branch"
                 )}
               </p>
               <a
@@ -40,7 +40,7 @@ const MiddleBanner = () => {
                 <span className="">
                   <FiPhoneCall />
                 </span>
-                {lang ? <span>০১৪০১-৫৩২০১৮</span> : '01401-532018'}
+                {lang ? <span>০১৪০১-৫৩২০১৮</span> : "01401-532018"}
               </a>
             </div>
             <div className="bg-[#ffffff3f] border-2 border-slate-100 rounded-md p-3">
@@ -48,7 +48,7 @@ const MiddleBanner = () => {
                 {lang ? (
                   <span className="bang">যাত্রাবাড়ী শাখা</span>
                 ) : (
-                  'Jatrabari Branch'
+                  "Jatrabari Branch"
                 )}
               </p>
               <a
@@ -58,7 +58,7 @@ const MiddleBanner = () => {
                 <span className="">
                   <FiPhoneCall />
                 </span>
-                {lang ? <span>০১৪০১-৫৩২০১৮</span> : '01401-532018'}
+                {lang ? <span>০১৪০১-৫৩২০১৮</span> : "01401-532018"}
               </a>
             </div>
             <div className="bg-[#ffffff3f] border-2 border-slate-100 rounded-md p-3">
@@ -66,7 +66,7 @@ const MiddleBanner = () => {
                 {lang ? (
                   <span className="bang">বরিশাল শাখা</span>
                 ) : (
-                  'Barisal Branch'
+                  "Barisal Branch"
                 )}
               </p>
               <a
@@ -76,7 +76,7 @@ const MiddleBanner = () => {
                 <span className="">
                   <FiPhoneCall />
                 </span>
-                {lang ? <span>০১৭১৫-১৯২৬৪৮</span> : '01715-192648'}
+                {lang ? <span>০১৭১৫-১৯২৬৪৮</span> : "01715-192648"}
               </a>
             </div>
             <div className="bg-[#ffffff3f] border-2 border-slate-100 rounded-md p-3">
@@ -84,7 +84,7 @@ const MiddleBanner = () => {
                 {lang ? (
                   <span className="bang">ডৌয়াতলা শাখা</span>
                 ) : (
-                  'Dawatola Branch'
+                  "Dawatala Branch"
                 )}
               </p>
               <a
@@ -94,12 +94,12 @@ const MiddleBanner = () => {
                 <span className="">
                   <FiPhoneCall />
                 </span>
-                {lang ? <span>০১৮৩৩-৮৪৭২৫২</span> : '01833-847252'}
+                {lang ? <span>০১৮৩৩-৮৪৭২৫২</span> : "01833-847252"}
               </a>
             </div>
             <div className="bg-[#ffffff3f] border-2 border-slate-100 rounded-md p-3 md:col-span-2">
               <p className="text-xl font-bold">
-                {lang ? <span className="bang">হটলাইন</span> : 'Hotline'}:
+                {lang ? <span className="bang">হটলাইন</span> : "Hotline"}:
               </p>
               <a
                 href="tel:+8801401-532018"
@@ -108,7 +108,7 @@ const MiddleBanner = () => {
                 <span className="">
                   <FiPhoneCall />
                 </span>
-                {lang ? <span>০১৪০১-৫৩২০১৮</span> : '01401-532018'}
+                {lang ? <span>০১৪০১-৫৩২০১৮</span> : "01401-532018"}
               </a>
             </div>
           </div>
