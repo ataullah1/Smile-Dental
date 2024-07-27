@@ -5,10 +5,11 @@ DB_USER=
 DB_PASS=
 ```
 
-Client .env   =============
+Client .env   ================
+
 
 ```
-VITE_APIKEY ======
+VITE_APIKEY ============
 VITE_AUTHDOMAIN=altquery.firebaseapp.com
 VITE_PROJECTID=altquery
 VITE_STORAGEBUCKET=altquery.appspot.com
