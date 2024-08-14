@@ -163,7 +163,11 @@ const OurDentistSec = () => {
           to={"/dentists"}
           className="py-2 px-6 bg-pClr hover:bg-pClr2 rounded-md font-semibold text-slate-100 duration-200"
         >
-          View All Dentists
+          {lang ? (
+            <span className="bang">সকল ডেন্টিস্টদের দেখুন</span>
+          ) : (
+            "View All Dentists"
+          )}
         </Link>
       </div>
     </div>

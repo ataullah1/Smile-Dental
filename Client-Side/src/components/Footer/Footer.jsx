@@ -99,15 +99,6 @@ const Footer = () => {
             </h1>
             <div className="flex flex-col gap-2">
               <Link
-                to={"/"}
-                className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
-              >
-                <span className="text-xl text-pClr">
-                  <GoGitBranch />
-                </span>
-                {lang ? "মিরপুর শাখা" : "Mirpur Branch"}
-              </Link>
-              <Link
                 to={"/treatments"}
                 className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
               >
@@ -115,6 +106,15 @@ const Footer = () => {
                   <GoGitBranch />
                 </span>
                 {lang ? "যাত্রাবাড়ী শাখা" : "Jatrabari Branch"}
+              </Link>
+              <Link
+                to={"/"}
+                className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
+              >
+                <span className="text-xl text-pClr">
+                  <GoGitBranch />
+                </span>
+                {lang ? "মিরপুর শাখা" : "Mirpur Branch"}
               </Link>
               <Link
                 to={"/about"}
