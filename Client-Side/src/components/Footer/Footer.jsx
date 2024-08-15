@@ -72,6 +72,7 @@ const Footer = () => {
                 </span>
                 {lang ? "আমাদের সম্পর্কে" : "About Us"}
               </Link>
+              <Link>fsadfsadf</Link>
               <Link
                 to={"/contact"}
                 className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
