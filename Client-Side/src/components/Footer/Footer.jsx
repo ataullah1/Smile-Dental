@@ -93,7 +93,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-
+          ----------------j
           <div>
             <h1 className="text-3xl font-bold bang text-slate-50 pb-2 md:pb-6">
               {lang ? <span className="bang">সকল শাখা</span> : "Branches"}
@@ -137,7 +137,6 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-
           <div>
             <h1 className="text-3xl font-bold bang text-slate-50 pb-2 md:pb-6">
               {lang ? (
@@ -181,7 +180,6 @@ const Footer = () => {
               </p>
             </div>
           </div>
-
           <div className="text-center">
             <h1 className="border-2 rounded-md p-2 w-48 text-center text-4xl font-bold mx-auto">
               Logo img
