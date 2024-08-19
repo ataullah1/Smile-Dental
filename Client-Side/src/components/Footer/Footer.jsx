@@ -93,7 +93,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          ----------------j
+          {/* ----------------j */}
           <div>
             <h1 className="text-3xl font-bold bang text-slate-50 pb-2 md:pb-6">
               {lang ? <span className="bang">সকল শাখা</span> : "Branches"}
