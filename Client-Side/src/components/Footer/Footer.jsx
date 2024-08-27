@@ -62,7 +62,6 @@ const Footer = () => {
                   <BsArrowRight />
                 </span>
                 {lang ? "চিকিৎসা" : "Treatments"}
-                {lang ? "চিকিৎসা" : "Treatments"}
               </Link>
               <Link
                 to={"/about"}
