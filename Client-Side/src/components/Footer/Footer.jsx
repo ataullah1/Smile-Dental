@@ -53,6 +53,7 @@ const Footer = () => {
                   <BsArrowRight />
                 </span>
                 {lang ? "হোম" : "Home"}
+                {lang ? "হোম" : "Home"}
               </Link>
               <Link
                 to={"/treatments"}
