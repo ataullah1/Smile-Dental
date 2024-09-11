@@ -7,6 +7,9 @@ import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
+  FaLinkedinIn,
+  FaLinkedinIn,
+  FaLinkedinIn,
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
