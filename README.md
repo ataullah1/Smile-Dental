@@ -22,7 +22,8 @@ VITE_IMGBB_API=7ad04da7b55bd8e224c5ca06e4112249
 # VITE_API_URL='https://alt-query-server.vercel.app'
 ```
 
-Server Some gide =========================================
+Server Some gide ===================================
+
 
 
 
