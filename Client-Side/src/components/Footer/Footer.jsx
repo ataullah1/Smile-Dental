@@ -24,10 +24,7 @@ const Footer = () => {
         <div className="w-11/12 mx-auto py-8 px-6 bg-pClr text-center rounded-md">
           <h1 className="text-2xl md:text-4xl font-bold flex flex-col md:flex-row items-center gap-2 justify-center">
             {lang ? (
-              <span className="bang">
-                আজই আমাদের সাথে Bamna - BargunaBamna - BargunaBamna -
-                BargunaBamna - Barguna
-              </span>
+              <span className="bang">আজই আমাদের সাথে যোগাযোগ করুন</span>
             ) : (
               "Get in touch with us today"
             )}
