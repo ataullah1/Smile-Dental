@@ -1,12 +1,37 @@
 const About = () => {
   return (
     <div>
-      <h1 className="text-5xl font-bold text-center py-3 mt-20">
-        This is About Section.
-      </h1>
-
+      <div>
+        <h1 className="text-5xl font-bold text-center py-3 mt-20">
+          This is About Section.
+        </h1>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint atque
+          ea dolorum sequi numquam non consectetur accusamus optio, facere ullam
+          dolor excepturi et. Quidem vitae atque eum quae, ex laborum fugiat
+          culpa, maxime voluptatum vel pariatur asperiores accusamus laboriosam
+          ratione inventore nam dolores commodi aspernatur magni corrupti
+          perferendis excepturi! In reiciendis enim voluptatibus laudantium
+          sequi est perferendis asperiores recusandae repellat cum eius eum,
+          cumque natus nihil praesentium alias qui! Error ex quo necessitatibus
+          esse dolores fugit unde corporis eius culpa! Facilis, maxime. Aut
+          suscipit officia exercitationem deserunt culpa blanditiis incidunt
+          deleniti enim debitis praesentium architecto, fuga dolorum ipsa rem
+          veritatis modi a vitae ea sit autem est. Officiis modi sunt nam ipsam,
+          doloribus consectetur deleniti, quod totam velit nemo doloremque
+          dolorem temporibus qui! Qui atque alias ea minima tempora nemo sunt
+          repudiandae repellendus saepe velit nobis modi officiis autem aperiam
+          commodi officia, quis enim aspernatur accusantium pariatur et?
+          Repellendus error voluptatibus rerum reiciendis nemo doloremque
+          incidunt, placeat voluptatum suscipit id numquam sunt repudiandae
+          illum facilis, ipsum iusto iste odit eius hic excepturi pariatur
+          tempora, odio voluptate! Odio sequi at maiores reiciendis repellat
+          perferendis iure quod quam nemo iste ab distinctio minus quos placeat,
+          alias id libero molestiae fugit minima rerum!
+        </p>
+      </div>
       {/* Google map link */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-5 max-w-screen-xl mx-auto my-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-5 my-12">
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-4xl font-bold mb-4">Mirpur Branch</h1>
           <iframe
