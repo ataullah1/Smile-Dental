@@ -6,28 +6,22 @@ const About = () => {
           This is About Section.
         </h1>
         <p className="text-center">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint atque
-          ea dolorum sequi numquam non consectetur accusamus optio, facere ullam
-          dolor excepturi et. Quidem vitae atque eum quae, ex laborum fugiat
-          culpa, maxime voluptatum vel pariatur asperiores accusamus laboriosam
-          ratione inventore nam dolores commodi aspernatur magni corrupti
-          perferendis excepturi! In reiciendis enim voluptatibus laudantium
-          sequi est perferendis asperiores recusandae repellat cum eius eum,
-          cumque natus nihil praesentium alias qui! Error ex quo necessitatibus
-          esse dolores fugit unde corporis eius culpa! Facilis, maxime. Aut
-          suscipit officia exercitationem deserunt culpa blanditiis incidunt
-          deleniti enim debitis praesentium architecto, fuga dolorum ipsa rem
-          veritatis modi a vitae ea sit autem est. Officiis modi sunt nam ipsam,
-          doloribus consectetur deleniti, quod totam velit nemo doloremque
-          dolorem temporibus qui! Qui atque alias ea minima tempora nemo sunt
-          repudiandae repellendus saepe velit nobis modi officiis autem aperiam
-          commodi officia, quis enim aspernatur accusantium pariatur et?
-          Repellendus error voluptatibus rerum reiciendis nemo doloremque
-          incidunt, placeat voluptatum suscipit id numquam sunt repudiandae
-          illum facilis, ipsum iusto iste odit eius hic excepturi pariatur
-          tempora, odio voluptate! Odio sequi at maiores reiciendis repellat
-          perferendis iure quod quam nemo iste ab distinctio minus quos placeat,
-          alias id libero molestiae fugit minima rerum!
+          {`At Smile Dental Care, our mission is to provide world-class dental
+          services to patients in Bangladesh. We are committed to offering
+          high-quality dental care in a comfortable, compassionate, and friendly
+          environment. Our team of experienced dentists and skilled staff use
+          the latest technologies and techniques to ensure that you receive the
+          best treatment possible. We believe that a beautiful, healthy smile
+          can transform lives. Whether you're looking for routine check-ups,
+          cosmetic dentistry, or specialized treatments, we are here to help.
+          From preventive care to restorative and cosmetic solutions, Smile
+          Dental Care covers all aspects of oral health. Your comfort and
+          satisfaction are our top priorities. With a focus on patient
+          education, we work to ensure that you fully understand your treatment
+          options, empowering you to make informed decisions about your dental
+          health. Located conveniently in Bangladesh, we invite you to visit us
+          for personalized dental care tailored to your needs. Let us help you
+          achieve the smile of your dreams at Smile Dental Care!`}
         </p>
       </div>
       {/* Google map link */}
