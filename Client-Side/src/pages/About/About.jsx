@@ -22,6 +22,22 @@ const About = () => {
           health. Located conveniently in Bangladesh, we invite you to visit us
           for personalized dental care tailored to your needs. Let us help you
           achieve the smile of your dreams at Smile Dental Care!`}
+          {`At Smile Dental Care, our mission is to provide world-class dental
+          services to patients in Bangladesh. We are committed to offering
+          high-quality dental care in a comfortable, compassionate, and friendly
+          environment. Our team of experienced dentists and skilled staff use
+          the latest technologies and techniques to ensure that you receive the
+          best treatment possible. We believe that a beautiful, healthy smile
+          can transform lives. Whether you're looking for routine check-ups,
+          cosmetic dentistry, or specialized treatments, we are here to help.
+          From preventive care to restorative and cosmetic solutions, Smile
+          Dental Care covers all aspects of oral health. Your comfort and
+          satisfaction are our top priorities. With a focus on patient
+          education, we work to ensure that you fully understand your treatment
+          options, empowering you to make informed decisions about your dental
+          health. Located conveniently in Bangladesh, we invite you to visit us
+          for personalized dental care tailored to your needs. Let us help you
+          achieve the smile of your dreams at Smile Dental Care!`}
         </p>
       </div>
       {/* Google map link */}
