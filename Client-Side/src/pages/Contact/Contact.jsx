@@ -12,16 +12,6 @@ const Contact = () => {
         veritatis libero non similique molestias tempore sapiente cumque totam,
         reprehenderit exercitationem?
       </p>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur
-        veritatis libero non similique molestias tempore sapiente cumque totam,
-        reprehenderit exercitationem?
-      </p>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur
-        veritatis libero non similique molestias tempore sapiente cumque totam,
-        reprehenderit exercitationem?
-      </p>
     </div>
   );
 };
