@@ -11,7 +11,13 @@ const Contact = () => {
       </div>
       <div>
         <form>
-          <input type="text" />
+          <input type="text" placeholder="Enter your name" />
+          <input
+            type="email"
+            name=""
+            id=""
+            placeholder="example@gmail.com"
+          />{" "}
         </form>
       </div>
     </div>
