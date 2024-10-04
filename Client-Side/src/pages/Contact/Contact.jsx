@@ -12,12 +12,8 @@ const Contact = () => {
       <div>
         <form>
           <input type="text" placeholder="Enter your name" />
-          <input
-            type="email"
-            name=""
-            id=""
-            placeholder="example@gmail.com"
-          />{" "}
+          <input type="email" name="" id="" placeholder="example@gmail.com" />
+          <input type="button" value="Send " />
         </form>
       </div>
     </div>
