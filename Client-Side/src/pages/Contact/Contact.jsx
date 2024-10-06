@@ -13,7 +13,7 @@ const Contact = () => {
         <form>
           <input type="text" placeholder="Enter your name" />
           <input type="email" name="" id="" placeholder="example@gmail.com" />
-          <input type="button" value="Send " />
+          <input type="button" value="Send Message" />
         </form>
       </div>
     </div>
