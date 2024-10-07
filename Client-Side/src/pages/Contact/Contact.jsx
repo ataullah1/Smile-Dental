@@ -6,9 +6,9 @@ const Contact = () => {
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur
           veritatis libero non similique molstias tempore sapiente cumque totam,
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur
-          veritatis libero non similique molstias tempore sapiente cumque totam,
-          reprehenderit exercitationem?
+          reprehenderit exercitationem? Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Consequatur veritatis libero non similique molstias
+          tempore sapiente cumque totam, reprehenderit exercitationem?
         </p>
       </div>
       <div>
