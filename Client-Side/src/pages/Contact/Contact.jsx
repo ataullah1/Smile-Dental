@@ -2,8 +2,10 @@ const Contact = () => {
   return (
     <div className="p-20 text-center">
       <div>
-        <h1 className="text-3xl font-bold">Hello Contact us page</h1>
-        <p>
+        <h1 className="text-3xl font-bold mt-5 mb-2 capitalize">
+          Hello Contact us page
+        </h1>
+        <p className="max-w-3xl mx-auto mb-5">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur
           veritatis libero non similique molstias tempore sapiente cumque totam,
           reprehenderit exercitationem? Lorem ipsum dolor sit, amet consectetur
@@ -11,17 +13,21 @@ const Contact = () => {
           tempore sapiente cumque totam, reprehenderit exercitationem?
         </p>
       </div>
-      <div>
+      <div className="max-w-3xl mx-auto">
         <form className="flex flex-col gap-5">
-          <input className="" type="text" placeholder="Enter your name" />
+          <input className="p-2" type="text" placeholder="Enter your name" />
           <input
-            className=""
+            className="p-2"
             type="email"
             name=""
             id=""
             placeholder="example@gmail.com"
           />
-          <input className="" type="button" value="Send Message" />
+          <input
+            className="p-2 bg-blue-600 text-white font-bold"
+            type="button"
+            value="Send Message"
+          />
         </form>
       </div>
     </div>
