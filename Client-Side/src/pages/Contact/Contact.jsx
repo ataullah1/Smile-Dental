@@ -1,8 +1,8 @@
 const Contact = () => {
   return (
-    <div className="p-20 text-centerj">
+    <div className="p-20 text-center">
       <div>
-        <h1>Hello Contact us page</h1>
+        <h1 className="text-3xl font-bold">Hello Contact us page</h1>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur
           veritatis libero non similique molstias tempore sapiente cumque totam,
@@ -12,10 +12,16 @@ const Contact = () => {
         </p>
       </div>
       <div>
-        <form>
-          <input type="text" placeholder="Enter your name" />
-          <input type="email" name="" id="" placeholder="example@gmail.com" />
-          <input type="button" value="Send Message" />
+        <form className="flex flex-col gap-5">
+          <input className="" type="text" placeholder="Enter your name" />
+          <input
+            className=""
+            type="email"
+            name=""
+            id=""
+            placeholder="example@gmail.com"
+          />
+          <input className="" type="button" value="Send Message" />
         </form>
       </div>
     </div>
