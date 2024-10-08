@@ -15,16 +15,20 @@ const Contact = () => {
       </div>
       <div className="max-w-3xl mx-auto">
         <form className="flex flex-col gap-5">
-          <input className="p-2" type="text" placeholder="Enter your name" />
           <input
-            className="p-2"
+            className="p-2 rounded"
+            type="text"
+            placeholder="Enter your name"
+          />
+          <input
+            className="p-2 rounded"
             type="email"
             name=""
             id=""
             placeholder="example@gmail.com"
           />
           <input
-            className="p-2 bg-blue-600 text-white font-bold"
+            className="p-2 bg-blue-600 text-white font-bold hover:scale-95 duration-300 rounded"
             type="button"
             value="Send Message"
           />
