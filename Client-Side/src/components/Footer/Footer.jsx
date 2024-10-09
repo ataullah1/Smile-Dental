@@ -15,7 +15,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const Footer = () => {
   const lang = useLang();
   return (
-    <footer className="text-white">
+    <footer className="text-white mt-10">
       <div
         style={{
           background: "linear-gradient(to bottom, #ffffff 50%, #091E3E 50%)",
@@ -72,7 +72,6 @@ const Footer = () => {
                 </span>
                 {lang ? "আমাদের সম্পর্কে" : "About Us"}
               </Link>
-              <Link>fsadfsadf</Link>
               <Link
                 to={"/contact"}
                 className="flex items-center gap-2 hover:text-pClr hover:translate-x-2  duration-300"
