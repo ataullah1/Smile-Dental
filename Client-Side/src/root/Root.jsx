@@ -25,7 +25,7 @@ const Root = () => {
   };
 
   return (
-    <div className="bg-slate-50 text-slate-800 min-h-screen overflow-x-hidden mt-16">
+    <div className="bg-slate-50 text-slate-800 min-h-screen overflow-x-hidden mt-[70px]">
       <Nav scrolled={scrolled} handleScrollTop={handleScrollTop} />
       <Outlet />
       <Footer />
