@@ -1,8 +1,14 @@
+import ServiceSec from "../../components/ServiceSec/ServiceSec";
+
 const treatments = () => {
   return (
-    <div>
-      <h1 className="p-20 text-4xl">Hello</h1>
-      <h1 className="p-20 text-4xl">Hello</h1>
+    <div className="container mx-auto">
+      <div>
+        <h1 className="text-4xl font-bold text-center">Treatments</h1>
+      </div>
+      <div>
+        <ServiceSec />
+      </div>
     </div>
   );
 };
