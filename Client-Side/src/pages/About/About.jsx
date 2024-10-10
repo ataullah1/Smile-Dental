@@ -2,7 +2,7 @@ const About = () => {
   return (
     <div className="max-w-screen-xl mx-auto">
       <div>
-        <h1 className="text-5xl font-bold text-center py-3 mt-20">
+        <h1 className="text-5xl font-bold text-center py-3">
           This is About Section.
         </h1>
         <p className="text-center">
