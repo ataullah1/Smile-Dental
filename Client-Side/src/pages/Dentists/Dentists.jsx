@@ -2,7 +2,7 @@ import OurDentistSec from "../../components/OurDentistSec/OurDentistSec";
 
 const Dentists = () => {
   return (
-    <div className="">
+    <div className="dentists_page">
       <OurDentistSec />
     </div>
   );
