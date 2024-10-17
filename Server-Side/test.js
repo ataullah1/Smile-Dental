@@ -10,4 +10,12 @@
 
 const lang = ["Javascript", "Python", "Java", "c"];
 
-const 
+const arrLen = (arr, func) => {
+  let lenArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    lenArr.push(element);
+  }
+};
+
+const callFunc = (lang, () => {});
