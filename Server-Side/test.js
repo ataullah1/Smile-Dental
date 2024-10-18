@@ -8,14 +8,24 @@
 // const b = () => "Hello";
 // console.log(b());
 
-const lang = ["Javascript", "Python", "Java", "c"];
+// const lang = ["Javascript", "Python", "Java", "c"];
 
-const arrLen = (arr, func) => {
-  let lenArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    const element = arr[i];
-    lenArr.push(element);
+// const arrLen = (arr, func) => {
+//   let lenArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     const element = arr[i];
+//     lenArr.push(element);
+//   }
+// };
+
+// const callFunc = (lang, () => {});
+
+let second = 0;
+
+setInterval(() => {
+  second++;
+  if (second == 11) {
+    second = 0;
   }
-};
-
-const callFunc = (lang, () => {});
+  console.log(second);
+}, 1000);
