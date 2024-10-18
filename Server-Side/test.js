@@ -2,6 +2,7 @@
 let hourElem = document.getElementById("hour_time");
 let minuteElem = document.getElementById("minute_time");
 let secondElem = document.getElementById("second_time");
+let periodElem = document.getElementById("period");
 
 // Get the current time in UTC
 let currentTimeUTC = new Date();
@@ -16,6 +17,10 @@ let gmtPlus6Time = new Date(currentTimeUTC.getTime() + offsetInMilliseconds);
 let nowHour = gmtPlus6Time.getUTCHours().toString().padStart(2, "0");
 let nowMinutes = gmtPlus6Time.getUTCMinutes().toString().padStart(2, "0");
 let nowSecond = gmtPlus6Time.getUTCSeconds().toString().padStart(2, "0");
+// Convert 24-hour format to 12-hour format
+let period = nowHour >= 12 ? "PM" : "AM";
+periodElem.innerHTML = period;
+nowHour = nowHour % 12 || 12; // Convert hour "0" to "12" for 12 AM
 
 hourElem.innerHTML = nowHour;
 minuteElem.innerHTML = nowMinutes;
@@ -43,6 +48,7 @@ setInterval(() => {
       minuteElem.innerHTML = minute_zro;
     }
     if (minute_intervel == 60) {
+      periodElem.innerHTML = period;
       minute_intervel = 0;
       hour_intervel++;
       hourElem.innerHTML = hour_intervel;
@@ -56,5 +62,3 @@ setInterval(() => {
     }
   }
 }, 1000);
-
-console.log(secondElem.innerText.length);
