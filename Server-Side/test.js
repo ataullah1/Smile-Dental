@@ -1,8 +1,7 @@
-let hour = document.getElementById("hour_time").innerText;
-let minute = document.getElementById("minute_time").innerText;
-let second = document.getElementById("second_time").innerText;
-
-console.log(hour, minute, second);
+// Get the elements, not just the inner text
+let hourElem = document.getElementById("hour_time");
+let minuteElem = document.getElementById("minute_time");
+let secondElem = document.getElementById("second_time");
 
 // Get the current time in UTC
 let currentTimeUTC = new Date();
@@ -18,24 +17,44 @@ let nowHour = gmtPlus6Time.getUTCHours().toString().padStart(2, "0");
 let nowMinutes = gmtPlus6Time.getUTCMinutes().toString().padStart(2, "0");
 let nowSecond = gmtPlus6Time.getUTCSeconds().toString().padStart(2, "0");
 
+hourElem.innerHTML = nowHour;
+minuteElem.innerHTML = nowMinutes;
+secondElem.innerHTML = nowSecond;
+
 let hour_intervel = nowHour;
 let minute_intervel = nowMinutes;
 let second_intervel = nowSecond;
 
 setInterval(() => {
   second_intervel++;
-  if (second_intervel == 61) {
+
+  secondElem.innerHTML = second_intervel;
+  if (second_intervel.toString().length < 2) {
+    const second_zro = "0" + second_intervel;
+    secondElem.innerHTML = second_zro;
+  }
+
+  if (second_intervel == 60) {
     second_intervel = 0;
     minute_intervel++;
-    if (minute_intervel == 61) {
+    minuteElem.innerHTML = minute_intervel;
+    if (minute_intervel.toString().length < 2) {
+      const minute_zro = "0" + minute_intervel;
+      minuteElem.innerHTML = minute_zro;
+    }
+    if (minute_intervel == 60) {
       minute_intervel = 0;
       hour_intervel++;
-      if (hour_intervel == 13) {
+      hourElem.innerHTML = hour_intervel;
+      if (hour_intervel.toString().length < 2) {
+        const hour_zro = "0" + hour_intervel;
+        hourElem.innerHTML = hour_zro;
+      }
+      if (hour_intervel == 12) {
         hour_intervel = 1;
       }
     }
   }
-  console.log(second_intervel);
-  console.log(minute_intervel);
-  console.log(hour_intervel);
 }, 1000);
+
+console.log(secondElem.innerText.length);
