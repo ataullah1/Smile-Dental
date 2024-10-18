@@ -1,31 +1,20 @@
-// console.log("Test");
-// const a = () => {
-//   let a = 5;
-//   return a;
-// };
-// console.log(a());
+let hour = document.getElementById("hour_time").innerText;
+let minute = document.getElementById("minute_time").innerText;
+let second = document.getElementById("second_time").innerText;
 
-// const b = () => "Hello";
-// console.log(b());
+console.log(hour, minute, second);
 
-// const lang = ["Javascript", "Python", "Java", "c"];
+// const currentTime = new Date();
+// const nowHour = currentTime.getHours();
+// const nowMinutes = currentTime.getMinutes();
+// const nowSecond = currentTime.getSeconds();
 
-// const arrLen = (arr, func) => {
-//   let lenArr = [];
-//   for (let i = 0; i < arr.length; i++) {
-//     const element = arr[i];
-//     lenArr.push(element);
+// let second_intervel = nowSecond;
+
+// setInterval(() => {
+//   second_intervel++;
+//   if (second_intervel == 61) {
+//     second_intervel = 0;
 //   }
-// };
-
-// const callFunc = (lang, () => {});
-
-let second = 0;
-
-setInterval(() => {
-  second++;
-  if (second == 11) {
-    second = 0;
-  }
-  console.log(second);
-}, 1000);
+//   console.log(second_intervel);
+// }, 1000);

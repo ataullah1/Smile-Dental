@@ -6,6 +6,15 @@
     <title>Ghorir Time</title>
 
     <style>
+      *,
+      h1,
+      body,
+      h2,
+      p {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
       body {
         height: 100vh;
         width: 100%;
@@ -13,10 +22,59 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        font-family: cursive;
+      }
+      h1 {
+        text-align: center;
+      }
+      .screen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        background-color: aquamarine;
+        height: 250px;
+        width: 550px;
+        border-radius: 6px;
+      }
+      .time {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+      }
+      .time_block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: darkslategray;
+        padding: 20px;
+        color: #fff;
+        border-radius: 6px;
       }
     </style>
   </head>
   <body>
-    <div class="screen"></div>
+    <div class="screen">
+      <h1>Ander Ghori</h1>
+      <div class="time">
+        <div class="hour time_block">
+          <p>Hour</p>
+          <h2 id="hour_time">00</h2>
+        </div>
+        <div class="minute time_block">
+          <p>Minute</p>
+          <h2 id="minute_time">00</h2>
+        </div>
+        <div class="second time_block">
+          <p>Second</p>
+          <h2 id="second_time">00</h2>
+        </div>
+      </div>
+    </div>
+
+    <script src="./test.js"></script>
   </body>
 </html>
