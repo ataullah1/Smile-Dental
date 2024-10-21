@@ -66,3 +66,4 @@ setInterval(() => {
 
 console.log(hourElem);
 console.log(minuteElem);
+console.log(secondElem);
