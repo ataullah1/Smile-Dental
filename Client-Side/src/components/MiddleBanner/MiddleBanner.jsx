@@ -29,6 +29,7 @@ const MiddleBanner = () => {
               <p className="text-xl font-bold">
                 {lang ? (
                   <span className="bang">মিরপুর শাখা</span>
+                  <span className="bang">মিরপুর শাখা</span>
                 ) : (
                   "Mirpur Branch"
                 )}
