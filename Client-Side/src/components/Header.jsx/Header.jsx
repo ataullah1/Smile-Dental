@@ -5,7 +5,13 @@ const Header = () => {
         This is Header Section
       </h1>
       <p>
-       
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sunt
+        tempore quos! Repellendus optio porro fugiat numquam quisquam doloribus
+        assumenda, consequatur velit, nesciunt dolorem, excepturi eligendi
+        veritatis hic fugit magni. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Fugiat sunt tempore quos! Repellendus optio porro
+        fugiat numquam quisquam doloribus assumenda, consequatur velit, nesciunt
+        dolorem, excepturi eligendi veritatis hic fugit magni.
       </p>
     </div>
   );
