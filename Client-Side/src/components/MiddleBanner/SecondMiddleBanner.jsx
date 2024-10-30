@@ -6,6 +6,8 @@ const SecondMiddleBanner = () => {
         temporibus est accusantium pariatur nobis laboriosam sit voluptatum, nam
         quis blanditiis in. Lorem ipsum dolor sit amet consectetur adipisicing
         elit. Quia, debitis. Consequatur ex similique excepturi, architecto
+        elit. Quia, debitis. Consequatur ex similique excepturi, architecto
+        elit. Quia, debitis. Consequatur ex similique excepturi, architecto
         ipsam quis nihil.
       </p>
     </div>
