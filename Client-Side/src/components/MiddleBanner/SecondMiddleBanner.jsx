@@ -2,13 +2,9 @@ const SecondMiddleBanner = () => {
   return (
     <div>
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis ab
-        temporibus est accusantium pariatur nobis laboriosam sit voluptatum, nam
-        quis blanditiis in. Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Quia, debitis. Consequatur ex similique excepturi, architecto
-        elit. Quia, debitis. Consequatur ex similique excepturi, architecto
-        elit. Quia, debitis. Consequatur ex similique excepturi, architecto
-        ipsam quis nihil.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+        officia corporis provident in corrupti repellat maxime dolorum natus
+        repudiandae molestias!
       </p>
     </div>
   );
