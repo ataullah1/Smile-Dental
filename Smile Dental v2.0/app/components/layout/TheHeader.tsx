@@ -1,186 +1,328 @@
 "use client";
 
-import Image from "next/image";
+import { useContext, useEffect, useState } from "react";
+import { LanguageContext } from "../provider/LanguageContext";
+import useLang from "../hooks/useLang";
 import Link from "next/link";
-import logo from "@/public/SmileDentalCare.png";
-import { useEffect, useState } from "react";
-import UpArrow from "../Icons/UpArrow";
+import { ChevronDown, UserCircle } from "lucide-react";
+import { MdGTranslate } from "react-icons/md";
+import { CgClose, CgMenuRightAlt } from "react-icons/cg";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "motion/react";
 import { signOut, useSession } from "next-auth/react";
 
-function TheHeader() {
-  const [isOpen, setIsOpen] = useState(false);
-  const pathName = usePathname();
-
-  const [y, setY] = useState(0);
-
-  const goTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+const TheHeader = () => {
   const { status } = useSession();
+  const [scrolled, setScrolled] = useState(false);
+  const [menu, setMenu] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
+  const pathName = usePathname();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
-    const updateScroll = () => {
-      setY(window.scrollY);
+    const handleScrolled = () => {
+      setScrolled(window.scrollY > 0);
     };
-
-    window.addEventListener("scroll", updateScroll);
-    window.addEventListener("resize", updateScroll);
-
+    window.addEventListener("scroll", handleScrolled);
     return () => {
-      window.removeEventListener("scroll", updateScroll);
-      window.removeEventListener("resize", updateScroll);
+      window.removeEventListener("scroll", handleScrolled);
     };
   }, []);
 
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const languageContext = useContext(LanguageContext);
+  if (!languageContext) {
+    throw new Error("LanguageContext is undefined");
+  }
+  const { toggleLanguage } = languageContext;
+  const lang = useLang();
+
+  const menuItems = [
+    { label: lang ? "হোম" : "Home", href: "/" },
+    {
+      label: lang ? "শাখা সমূহ" : "Branches",
+      subMenu: [
+        {
+          label: lang ? "ঢাকা যাত্রাবাড়ী শাখা" : "Dhaka Jatrabari Branch",
+          href: "/jatrabari",
+        },
+        {
+          label: lang ? "ঢাকা মিরপুর শাখা" : "Dhaka Mirpur Branch",
+          href: "/mirpur",
+        },
+        {
+          label: lang ? "বরিশাল চৌমাথা শাখা" : "Barishal Branch",
+          href: "/barishal",
+        },
+        {
+          label: lang ? "বামনা-ডৌয়াতলা শাখা" : "Dawatala Branch",
+          href: "/Dawatala",
+        },
+      ],
+    },
+    { label: lang ? "চিকিৎসা" : "Treatments", href: "/treatments" },
+    {
+      label: lang ? "অন্যান্য" : "Others",
+      subMenu: [
+        { label: lang ? "প্রবন্ধ পড়ুন" : "Read Blogs", href: "/blogs" },
+        {
+          label: lang ? "আমাদের ডেন্টিসগণ" : "Our Dentists",
+          href: "/dentists",
+        },
+        {
+          label: lang ? "অ্যাপয়েন্টমেন্ট" : "Appointment",
+          href: "/appointment",
+        },
+        { label: lang ? "আমাদের চাকরি" : "Our Jobs", href: "/career" },
+      ],
+    },
+    { label: lang ? "আমাদের সম্পর্কে" : "About Us", href: "/about" },
+    { label: lang ? "যোগাযোগ" : "Contact", href: "/contact" },
+  ];
+
   return (
-    <header
-      className={`w-full z-50 sticky top-0 bg-sky-50  ${
-        y > 0 ? "border-b border-blue-400" : ""
+    <div
+      className={`w-full fixed top-0 left-0 z-[900] duration-300 bg-[#ffffff] ${
+        scrolled ? "shadow-xl shadow-[#4a484845] py-2" : "py-3"
       }`}
     >
-      <div className="mx-auto flex flex-row items-center justify-between p-4  max-w-[1400px]">
-        <Link
-          onClick={() => setIsOpen(false)}
-          href="/"
-          className=" flex gap-2 items-center text-xl font-bold md:text-3xl text-blue-600  hover:text-blue-800"
-        >
-          <Image
-            src={logo}
-            priority
-            height={96}
-            width={75}
-            alt="Smile Dental Care logo"
-          />
-          Smile Dental Care
-        </Link>
-        <nav className="hidden md:flex gap-6 items-center text-lg">
-          <Link
-            href="/about"
-            aria-label="About us page link"
-            className={
-              pathName === "/about"
-                ? "text-blue-600 font-bold"
-                : "" + "hover:text-blue-600"
-            }
-          >
-            About us
-          </Link>
-          <Link
-            href="/services"
-            aria-label="Services page link"
-            className={
-              pathName === "/services"
-                ? "text-blue-600 font-bold"
-                : "" + "hover:text-blue-600"
-            }
-          >
-            Services
-          </Link>
-          <Link
-            href="/booking"
-            aria-label="Create a booking page link"
-            className="p-2 rounded-full bg-blue-600 text-white hover:bg-blue-800 "
-          >
-            Book now
-          </Link>
-          {status === "authenticated" && (
-            <>
-              <Link
-                href="/admin/bookings"
-                aria-label="Admin bookings dashboard page link"
-                className={
-                  pathName.startsWith("/admin")
-                    ? "text-blue-600 font-bold"
-                    : "" + "hover:text-blue-600"
-                }
-              >
-                Admin
-              </Link>
-              <button
-                onClick={() => signOut()}
-                className="p-2 text-blue-600 border border-blue-600 rounded  hover:text-blue-800 hover:border-blue-800"
-              >
-                Sign Out
-              </button>
-            </>
-          )}
-        </nav>
-        <div className="flex md:hidden gap-8 items-center">
+      <div className="flex justify-between items-center w-11/12 mx-auto">
+        <Link href={"/"}>
           <button
-            aria-label="expand mobile menu button"
-            className={`hamburger ${isOpen ? "open" : ""} focus:outline-none `}
-            onClick={() => setIsOpen((prev) => !prev)}
+            onClick={handleScrollTop}
+            className="text-3xl font-bold w-28 sm:w-36 h-12 rounded-lg border-2 text-slate-600 border-slate-700"
           >
-            <span className="hamburger-top"></span>
-            <span className="hamburger-middle"></span>
-            <span className="hamburger-bottom"></span>
+            Logo
           </button>
+        </Link>
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center navigation text-slate-900 text-lg">
+          {menuItems.map((item, index) => (
+            <div
+              key={index}
+              className="relative py-2 px-2 "
+              onMouseEnter={() => setActiveDropdown(index)}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              {item.subMenu ? (
+                <>
+                  {/* Button with Active Highlight */}
+                  <button
+                    className={`flex items-center gap-2 ${
+                      item.subMenu.some((sub) => sub.href === pathName)
+                        ? "text-pClr"
+                        : ""
+                    } hover:text-pClr`}
+                  >
+                    {item.label}
+                    <span className="hover:pt-2 hover:text-pClr duration-150 text-slate-600">
+                      <ChevronDown />
+                    </span>
+                  </button>
+
+                  {/* Dropdown with Smooth Animation */}
+                  <AnimatePresence>
+                    {activeDropdown === index && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="absolute top-10 pt-5 pb-2 left-1/2 translate-x-1/2 z-[900] flex w-52 flex-col bg-[#F5F4F3] rounded-b-md text-center dropdownMenu shadow-md"
+                      >
+                        {item.subMenu.map((subItem, subIndex) => (
+                          <Link
+                            key={subIndex}
+                            className={`py-2 px-2 hover:text-pClr ${
+                              pathName === subItem.href ? "text-pClr" : ""
+                            }`}
+                            href={subItem.href}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </>
+              ) : (
+                // Regular Menu Item
+                <Link
+                  className={`py-2 px-2 hover:text-pClr ${
+                    pathName === item.href ? "text-pClr" : ""
+                  }`}
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              )}
+            </div>
+          ))}
         </div>
-      </div>
-      {isOpen && (
-        <div
-          onClick={() => setIsOpen(false)}
-          className="md:hidden p-4 bg-sky-50  mt-2 flex flex-col gap-2 text-center"
-        >
-          <Link
-            href={"/about"}
-            aria-label="About us page link"
-            className="border rounded p-2 border-blue-400 animate-link"
+
+        {/* Right Section */}
+        <div className="flex items-center gap-2 sm:gap-4 relative">
+          <button
+            onClick={toggleLanguage}
+            className="py-1.5 px-1 sm:w-20 font-bold text-center justify-center border border-slate-300 text-slate-800 rounded flex items-center gap-2 mr-1"
           >
-            About us
-          </Link>
-          <Link
-            href={"/services"}
-            aria-label="Services page link"
-            className="border rounded p-2 border-blue-400 animate-link"
-          >
-            Services
-          </Link>
+            <span className="sm:text-2xl">
+              <MdGTranslate />
+            </span>
+            {lang ? "EN" : <span className="bang">বাং</span>}
+          </button>
           <Link
             href={"/booking"}
-            aria-label="Create a booking page link"
-            className=" rounded p-2 bg-blue-600 text-white animate-link font-bold"
+            className="py-2 px-4 xl:px-6 duration-200 bg-pClr hover:bg-pClr2 text-white rounded-md font-semibold hidden lg:block"
           >
-            Book now
+            {lang ? (
+              <span className="bang">অ্যাপয়েন্টমেন্ট</span>
+            ) : (
+              "Appointment"
+            )}
           </Link>
+          {/* Menu Button for Mobile */}
+          <button
+            onClick={() => setMenu(!menu)}
+            className="text-4xl lg:hidden duration-300 text-gray-900"
+          >
+            {menu ? <CgClose /> : <CgMenuRightAlt />}
+          </button>
+
           {status === "authenticated" && (
-            <>
-              <Link
-                href={"/admin/bookings"}
-                aria-label="Admin bookings dashboard page link"
-                className="border rounded p-2 border-blue-400 animate-link"
-              >
-                Admin
-              </Link>
+            <div className="relative">
+              {/* Admin Icon */}
               <button
-                className=" rounded p-2 bg-blue-600 text-white animate-link font-bold"
-                onClick={() => signOut()}
+                onClick={() => setIsDropdownOpen((prev) => !prev)}
+                aria-label="Open admin dropdown"
+                className="flex items-center text-blue-600 hover:text-blue-800"
               >
-                Sign Out
+                <UserCircle className="w-8 h-8" />
               </button>
-            </>
+
+              {/* Dropdown Menu */}
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg z-50"
+                  >
+                    <Link
+                      href="/admin/bookings"
+                      aria-label="Admin bookings dashboard page link"
+                      onClick={() => setIsDropdownOpen(false)}
+                      className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-t ${
+                        pathName.startsWith("/admin")
+                          ? "font-bold text-blue-600"
+                          : ""
+                      }`}
+                    >
+                      Admin Dashboard
+                    </Link>
+                    <button
+                      onClick={() => {
+                        signOut();
+                        setIsDropdownOpen(false);
+                      }}
+                      className="block w-full text-left px-4 py-2 text-blue-600 rounded-b bg-gray-200 hover:bg-gray-300 hover:text-blue-800"
+                    >
+                      Sign Out
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           )}
+
+          {/* Mobile Navigation */}
+          <AnimatePresence>
+            {menu && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="absolute top-12 w-fit min-w-60 rounded-md p-5 right-0 bg-[#F5F4F3] lg:hidden flex flex-col items-center navigation text-slate-900 text-lg"
+              >
+                {menuItems.map((item, index) => (
+                  <div key={index} className="group relative py-2 px-2">
+                    {item.subMenu ? (
+                      <>
+                        {/* Button to Toggle Dropdown */}
+                        <button
+                          className="flex items-center gap-2 hover:text-pClr"
+                          onClick={() =>
+                            setActiveDropdown(
+                              activeDropdown === index ? null : index
+                            )
+                          }
+                        >
+                          {item.label}
+                          <ChevronDown />
+                        </button>
+
+                        {/* Dropdown Menu */}
+                        <AnimatePresence>
+                          {activeDropdown === index && (
+                            <motion.div
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              className="absolute top-9 right-32 pt-5 pb-2 z-[900] flex w-48 flex-col bg-[#F5F4F3] rounded-md border border-slate-700 text-center dropdownMenu"
+                            >
+                              {item.subMenu.map((subItem, subIndex) => (
+                                <Link
+                                  key={subIndex}
+                                  onClick={() => {
+                                    setMenu(false); // Close mobile menu
+                                    setActiveDropdown(null); // Close all dropdowns
+                                  }}
+                                  className={`py-2 px-2 hover:text-pClr ${
+                                    pathName === subItem.href ? "text-pClr" : ""
+                                  }`}
+                                  href={subItem.href}
+                                >
+                                  {subItem.label}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      // Regular Menu Item
+                      <Link
+                        onClick={() => setMenu(false)}
+                        className={`py-2 px-2 hover:text-pClr ${
+                          pathName === item.href ? "text-pClr" : ""
+                        }`}
+                        href={item.href}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </div>
+                ))}{" "}
+                <Link
+                  href={"/booking"}
+                  className="py-2 px-4 xl:px-6 duration-200 bg-pClr hover:bg-pClr2 text-white rounded-md font-semibold"
+                >
+                  {lang ? (
+                    <span className="bang">অ্যাপয়েন্টমেন্ট</span>
+                  ) : (
+                    "Appointment"
+                  )}
+                </Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      )}
-      <div className="fixed bottom-0 -right-6 p-10 z-[10]">
-        <button
-          aria-label="go to top button"
-          onClick={goTop}
-          className={
-            y < 40
-              ? "hidden"
-              : "" +
-                "rounded-full border-2 border-blue-600 px-3 sm:px-4 hover:bg-slate-200 cursor-pointer aspect-square grid place-items-center"
-          }
-        >
-          <UpArrow />
-        </button>
       </div>
-    </header>
+    </div>
   );
-}
+};
+
 export default TheHeader;

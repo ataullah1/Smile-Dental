@@ -11,7 +11,6 @@ import AppProvider from "./components/AppProvider";
 import { Suspense } from "react";
 import Spinner from "./components/Spinner";
 import { LanguageProvider } from "./components/provider/LanguageContext";
-import Nav from "./components/layout/TheNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -61,7 +60,6 @@ export default function RootLayout({
           <LanguageProvider>
             <div className="flex flex-col min-h-screen">
               <TheHeader />
-              <Nav />
               <Suspense fallback={<Spinner />}>
                 <Loader />
               </Suspense>
