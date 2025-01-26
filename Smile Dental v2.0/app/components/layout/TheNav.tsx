@@ -7,44 +7,86 @@ import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { MdGTranslate } from "react-icons/md";
 import { CgClose, CgMenuRightAlt } from "react-icons/cg";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "motion/react";
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menu, setMenu] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
+  const pathName = usePathname();
+
   useEffect(() => {
     const handleScrolled = () => {
-      if (window.scrollY > 0) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 0);
     };
     window.addEventListener("scroll", handleScrolled);
     return () => {
       window.removeEventListener("scroll", handleScrolled);
     };
   }, []);
-  // console.log(scrolled);
+
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const [menu, setMenu] = useState(false);
   const languageContext = useContext(LanguageContext);
   if (!languageContext) {
     throw new Error("LanguageContext is undefined");
   }
   const { toggleLanguage } = languageContext;
   const lang = useLang();
-  // console.log(userDta);
 
-  // console.log(scrolled);
+  const menuItems = [
+    { label: lang ? "হোম" : "Home", href: "/" },
+    {
+      label: lang ? "শাখা সমূহ" : "Branches",
+      subMenu: [
+        {
+          label: lang ? "ঢাকা যাত্রাবাড়ী শাখা" : "Dhaka Jatrabari Branch",
+          href: "/jatrabari",
+        },
+        {
+          label: lang ? "ঢাকা মিরপুর শাখা" : "Dhaka Mirpur Branch",
+          href: "/mirpur",
+        },
+        {
+          label: lang ? "বরিশাল চৌমাথা শাখা" : "Barishal Branch",
+          href: "/barishal",
+        },
+        {
+          label: lang ? "বামনা-ডৌয়াতলা শাখা" : "Dawatala Branch",
+          href: "/Dawatala",
+        },
+      ],
+    },
+    { label: lang ? "চিকিৎসা" : "Treatments", href: "/treatments" },
+    {
+      label: lang ? "অন্যান্য" : "Others",
+      subMenu: [
+        { label: lang ? "প্রবন্ধ পড়ুন" : "Read Blogs", href: "/blogs" },
+        {
+          label: lang ? "আমাদের ডেন্টিসগণ" : "Our Dentists",
+          href: "/dentists",
+        },
+        {
+          label: lang ? "অ্যাপয়েন্টমেন্ট" : "Appointment",
+          href: "/appointment",
+        },
+        { label: lang ? "আমাদের চাকরি" : "Our Jobs", href: "/career" },
+      ],
+    },
+    { label: lang ? "আমাদের সম্পর্কে" : "About Us", href: "/about" },
+    { label: lang ? "যোগাযোগ" : "Contact", href: "/contact" },
+  ];
+
   return (
-    // <div className="fixed left-0 top-0 z-50 w-full" >
     <div
-      className={`w-full fixed top-0 left-0 z-[900] duration-300 bg-[#ffffff]
-      ${scrolled ? "shadow-xl shadow-[#4a484845] py-2" : "py-3"}`}
+      className={`w-full fixed top-0 left-0 z-[900] duration-300 bg-[#ffffff] ${
+        scrolled ? "shadow-xl shadow-[#4a484845] py-2" : "py-3"
+      }`}
     >
-      <div className=" flex justify-between items-center w-11/12 mx-auto">
+      <div className="flex justify-between items-center w-11/12 mx-auto">
         <Link href={"/"}>
           <button
             onClick={handleScrollTop}
@@ -53,98 +95,73 @@ const Nav = () => {
             Logo
           </button>
         </Link>
-        <div className="hidden lg:flex lg:gap-2 xl:gap-4 items-center navigation text-slate-900 text-lg">
-          <Link className="py-2 px-2 hover:text-pClr" href={"/"}>
-            {lang ? <span className="bang">হোম</span> : "Home"}
-          </Link>
+        {/* Desktop Navigation */}
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center navigation text-slate-900 text-lg">
+          {menuItems.map((item, index) => (
+            <div
+              key={index}
+              className="relative py-2 px-2 "
+              onMouseEnter={() => setActiveDropdown(index)}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              {item.subMenu ? (
+                <>
+                  {/* Button with Active Highlight */}
+                  <button
+                    className={`flex items-center gap-2 ${
+                      item.subMenu.some((sub) => sub.href === pathName)
+                        ? "text-pClr"
+                        : ""
+                    } hover:text-pClr`}
+                  >
+                    {item.label}
+                    <span className="hover:pt-2 hover:text-pClr duration-150 text-slate-600">
+                      <ChevronDown />
+                    </span>
+                  </button>
 
-          <div className="group relative cursor-pointer py-2 px-2">
-            <button className="flex items-center gap-2 hover:text-pClr">
-              {lang ? <span className="bang">শাখা সমূহ</span> : "Branches"}
-              <span className="hover:pt-2 hover:text-pClr duration-150 text-slate-600">
-                <ChevronDown />
-              </span>
-            </button>
-            <div className="invisible absolute top-9 pt-5 pb-2 left-1/2 -translate-x-1/2 z-[900] flex w-52 flex-col bg-[#F5F4F3] rounded-b-md group-hover:visible text-center dropdownMenu">
-              <Link className="py-2 px-2 hover:text-pClr" href={"/jatrabari"}>
-                {lang ? (
-                  <span className="bang">ঢাকা যাত্রাবাড়ী শাখা</span>
-                ) : (
-                  "Dhaka Jatrabari Branch"
-                )}
-              </Link>
-              <Link className="py-2 px-2 hover:text-pClr" href={"/mirpur"}>
-                {lang ? (
-                  <span className="bang">ঢাকা মিরপুর শাখা</span>
-                ) : (
-                  "Dhaka Mirpur Branch"
-                )}
-              </Link>
-              <Link className="py-2 px-2 hover:text-pClr" href={"/barishal"}>
-                {lang ? (
-                  <span className="bang">বরিশাল চৌমাথা শাখা</span>
-                ) : (
-                  "Barishal Branch"
-                )}
-              </Link>
-              <Link className="py-2 px-2 hover:text-pClr" href={"/Dawatala"}>
-                {lang ? (
-                  <span className="bang">বামনা-ডৌয়াতলা শাখা</span>
-                ) : (
-                  "Dawatala Branch"
-                )}
-              </Link>
+                  {/* Dropdown with Smooth Animation */}
+                  <AnimatePresence>
+                    {activeDropdown === index && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="absolute top-10 pt-5 pb-2 left-1/2 translate-x-1/2 z-[900] flex w-52 flex-col bg-[#F5F4F3] rounded-b-md text-center dropdownMenu shadow-md"
+                      >
+                        {item.subMenu.map((subItem, subIndex) => (
+                          <Link
+                            key={subIndex}
+                            className={`py-2 px-2 hover:text-pClr ${
+                              pathName === subItem.href ? "text-pClr" : ""
+                            }`}
+                            href={subItem.href}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </>
+              ) : (
+                // Regular Menu Item
+                <Link
+                  className={`py-2 px-2 hover:text-pClr ${
+                    pathName === item.href ? "text-pClr" : ""
+                  }`}
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              )}
             </div>
-          </div>
-
-          <Link className="py-2 px-2 hover:text-pClr" href={"/treatments"}>
-            {lang ? <span className="bang">চিকিৎসা</span> : "Treatments"}
-          </Link>
-
-          <div className="group relative cursor-pointer py-2 px-2">
-            <button className="flex items-center gap-2 hover:text-pClr">
-              {lang ? <span className="bang">অন্যান্য</span> : "Others"}
-              <span className="hover:pt-2 hover:text-pClr duration-150 text-slate-600">
-                <ChevronDown />
-              </span>
-            </button>
-            <div className="invisible absolute top-9 pt-5 pb-2 left-1/2 -translate-x-1/2 z-[900] flex w-44 flex-col bg-[#F5F4F3] rounded-b-md group-hover:visible text-center dropdownMenu">
-              <Link className="py-2 px-2 hover:text-pClr" href={"/blogs"}>
-                {lang ? (
-                  <span className="bang">প্রবন্ধ পড়ুন</span>
-                ) : (
-                  "Read Blogs"
-                )}
-              </Link>
-              <Link className="py-2 px-2 hover:text-pClr" href={"/dentists"}>
-                {lang ? (
-                  <span className="bang">আমাদের ডেন্টিসগণ</span>
-                ) : (
-                  "Our Dentists"
-                )}
-              </Link>
-              <Link className="py-2 px-2 hover:text-pClr" href={"/appointment"}>
-                {lang ? (
-                  <span className="bang">অ্যাপয়েন্টমেন্ট</span>
-                ) : (
-                  "Appointment"
-                )}
-              </Link>
-              <Link className="py-2 px-2 hover:text-pClr" href={"/carrer"}>
-                {lang ? <span className="bang">আমাদের চাকরি</span> : "Our Jobs"}
-              </Link>
-            </div>
-          </div>
-
-          <Link className="py-2 px-2 hover:text-pClr" href={"/about"}>
-            {lang ? <span className="bang">আমাদের সম্পর্কে</span> : "About Us"}
-          </Link>
-          <Link className="py-2 px-2 hover:text-pClr" href={"/contact"}>
-            {lang ? <span className="bang">যোগাযোগ</span> : "Contact"}
-          </Link>
+          ))}
         </div>
+
+        {/* Right Section */}
         <div className="flex items-center gap-2 sm:gap-4 relative">
-          {/* Language Toggle btn */}
           <button
             onClick={toggleLanguage}
             className="py-1.5 px-1 sm:w-20 font-bold text-center justify-center border border-slate-300 text-slate-800 rounded flex items-center gap-2 mr-1"
@@ -154,177 +171,95 @@ const Nav = () => {
             </span>
             {lang ? "EN" : <span className="bang">বাং</span>}
           </button>
-          {/* appoinment btn */}
           <Link
-            href={"/login"}
-            className="py-2 px-4 xl:px-6 duration-200 bg-pClr hover:bg-pClr2 text-white rounded-md font-bold"
+            href={"/booking"}
+            className="py-2 px-4 xl:px-6 duration-200 bg-pClr hover:bg-pClr2 text-white rounded-md font-semibold"
           >
-            {lang ? <span className="bang">লগইন</span> : "Log in"}
+            {lang ? (
+              <span className="bang">অ্যাপয়েন্টমেন্ট</span>
+            ) : (
+              "Appointment"
+            )}
           </Link>
-
-          {/* Menu Btn */}
+          {/* Menu Button for Mobile */}
           <button
             onClick={() => setMenu(!menu)}
-            className="text-4xl lg:hidden duration-300"
+            className="text-4xl lg:hidden duration-300 text-gray-900"
           >
             {menu ? <CgClose /> : <CgMenuRightAlt />}
           </button>
 
-          {menu && (
-            <div className="absolute top-12 w-48 rounded-md p-5 right-0 bg-[#F5F4F3] lg:hidden flex flex-col items-center navigation text-slate-900 text-lg">
-              <span
-                onClick={() => setMenu(!menu)}
-                className="rounded-full absolute top-2 left-2 border p-1 border-slate-700 text-xl"
+          {/* Mobile Navigation */}
+          <AnimatePresence>
+            {menu && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="absolute top-12 w-fit rounded-md p-5 right-0 bg-[#F5F4F3] lg:hidden flex flex-col items-center navigation text-slate-900 text-lg"
               >
-                <CgClose />
-              </span>
+                {menuItems.map((item, index) => (
+                  <div key={index} className="group relative py-2 px-2">
+                    {item.subMenu ? (
+                      <>
+                        {/* Button to Toggle Dropdown */}
+                        <button
+                          className="flex items-center gap-2 hover:text-pClr"
+                          onClick={() =>
+                            setActiveDropdown(
+                              activeDropdown === index ? null : index
+                            )
+                          }
+                        >
+                          {item.label}
+                          <ChevronDown />
+                        </button>
 
-              <Link
-                onClick={() => setMenu(!menu)}
-                className="py-2 px-2 hover:text-pClr"
-                href={"/"}
-              >
-                {lang ? <span className="bang">হোম</span> : "Home"}
-              </Link>
-
-              <div className="group relative cursor-pointer py-2 px-2">
-                <button className="flex items-center gap-2 hover:text-pClr">
-                  {lang ? <span className="bang">শাখা সমূহ</span> : "Branches"}
-                  <span className="hover:pt-2 hover:text-pClr duration-150 text-slate-600">
-                    <ChevronDown />
-                  </span>
-                </button>
-                <div className="invisible absolute top-9 right-32 pt-5 pb-2 z-[900] flex w-48 flex-col bg-[#F5F4F3] rounded-md  border border-slate-700 group-hover:visible text-center dropdownMenu">
-                  <Link
-                    onClick={() => setMenu(!menu)}
-                    className="py-2 px-2 hover:text-pClr"
-                    href={"/jatrabari"}
-                  >
-                    {lang ? (
-                      <span className="bang">ঢাকা যাত্রাবাড়ী শাখা</span>
+                        {/* Dropdown Menu */}
+                        <AnimatePresence>
+                          {activeDropdown === index && (
+                            <motion.div
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              className="absolute top-9 right-32 pt-5 pb-2 z-[900] flex w-48 flex-col bg-[#F5F4F3] rounded-md border border-slate-700 text-center dropdownMenu"
+                            >
+                              {item.subMenu.map((subItem, subIndex) => (
+                                <Link
+                                  key={subIndex}
+                                  onClick={() => {
+                                    setMenu(false); // Close mobile menu
+                                    setActiveDropdown(null); // Close all dropdowns
+                                  }}
+                                  className={`py-2 px-2 hover:text-pClr ${
+                                    pathName === subItem.href ? "text-pClr" : ""
+                                  }`}
+                                  href={subItem.href}
+                                >
+                                  {subItem.label}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
                     ) : (
-                      "Dhaka Jatrabari Branch"
+                      // Regular Menu Item
+                      <Link
+                        onClick={() => setMenu(false)}
+                        className={`py-2 px-2 hover:text-pClr ${
+                          pathName === item.href ? "text-pClr" : ""
+                        }`}
+                        href={item.href}
+                      >
+                        {item.label}
+                      </Link>
                     )}
-                  </Link>
-                  <Link
-                    onClick={() => setMenu(!menu)}
-                    className="py-2 px-2 hover:text-pClr"
-                    href={"/mirpur"}
-                  >
-                    {lang ? (
-                      <span className="bang">ঢাকা মিরপুর শাখা</span>
-                    ) : (
-                      "Dhaka Mirpur Branch"
-                    )}
-                  </Link>
-                  <Link
-                    onClick={() => setMenu(!menu)}
-                    className="py-2 px-2 hover:text-pClr"
-                    href={"/barishal"}
-                  >
-                    {lang ? (
-                      <span className="bang">বরিশাল চৌমাথা শাখা</span>
-                    ) : (
-                      "Barishal Branch"
-                    )}
-                  </Link>
-                  <Link
-                    onClick={() => setMenu(!menu)}
-                    className="py-2 px-2 hover:text-pClr"
-                    href={"/Dawatala"}
-                  >
-                    {lang ? (
-                      <span className="bang">বামনা-ডৌয়াতলা শাখা</span>
-                    ) : (
-                      "Dawatala Branch"
-                    )}
-                  </Link>
-                </div>
-              </div>
-
-              <Link
-                onClick={() => setMenu(!menu)}
-                className="py-2 px-2 hover:text-pClr"
-                href={"/treatments"}
-              >
-                {lang ? <span className="bang">চিকিৎসা</span> : "Treatments"}
-              </Link>
-
-              <div className="group relative cursor-pointer py-2 px-2">
-                <button className="flex items-center gap-2 hover:text-pClr">
-                  {lang ? <span className="bang">অন্যান্য</span> : "Others"}
-                  <span className="hover:pt-2 hover:text-pClr duration-150 text-slate-600">
-                    <ChevronDown />
-                  </span>
-                </button>
-                <div className="invisible absolute top-9 pt-5 border border-slate-700 pb-2 right-32 z-[900] flex w-48 flex-col bg-[#F5F4F3] rounded-md group-hover:visible text-center dropdownMenu">
-                  <Link
-                    onClick={() => setMenu(!menu)}
-                    className="py-2 px-2 hover:text-pClr"
-                    href={"/blogs"}
-                  >
-                    {lang ? (
-                      <span className="bang">প্রবন্ধ পড়ুন</span>
-                    ) : (
-                      "Read Blogs"
-                    )}
-                  </Link>
-                  <Link
-                    onClick={() => setMenu(!menu)}
-                    className="py-2 px-2 hover:text-pClr"
-                    href={"/dentists"}
-                  >
-                    {lang ? (
-                      <span className="bang">আমাদের ডেন্টিসগণ</span>
-                    ) : (
-                      "Our Dentists"
-                    )}
-                  </Link>
-                  <Link
-                    onClick={() => setMenu(!menu)}
-                    className="py-2 px-2 hover:text-pClr"
-                    href={"/appointment"}
-                  >
-                    {lang ? (
-                      <span className="bang">অ্যাপয়েন্টমেন্ট</span>
-                    ) : (
-                      "Appointment"
-                    )}
-                  </Link>
-                  <Link
-                    onClick={() => setMenu(!menu)}
-                    className="py-2 px-2 hover:text-pClr"
-                    href={"/dentists"}
-                  >
-                    {lang ? (
-                      <span className="bang">আমাদের চাকরি</span>
-                    ) : (
-                      "carrer"
-                    )}
-                  </Link>
-                </div>
-              </div>
-
-              <Link
-                onClick={() => setMenu(!menu)}
-                className="py-2 px-2 hover:text-pClr"
-                href={"/about"}
-              >
-                {lang ? (
-                  <span className="bang">আমাদের সম্পর্কে</span>
-                ) : (
-                  "About Us"
-                )}
-              </Link>
-              <Link
-                onClick={() => setMenu(!menu)}
-                className="py-2 px-2 hover:text-pClr"
-                href={"/contact"}
-              >
-                {lang ? <span className="bang">যোগাযোগ</span> : "Contact"}
-              </Link>
-            </div>
-          )}
+                  </div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>
