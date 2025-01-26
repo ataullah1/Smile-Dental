@@ -1,6 +1,6 @@
-import axios from 'axios';
-import useAuth from './useAuth';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import useAuth from "./useAuth";
+import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -16,10 +16,10 @@ const useAxiosSec = () => {
       return res;
     },
     async (error) => {
-      console.log('Axios Interceptor error:  ', error);
+      console.log("Axios Interceptor error:  ", error);
       if (error.response.status === 401 || error.response.status === 403) {
         logOutAcc();
-        naviget('/login');
+        naviget("/login");
       }
       return Promise.reject(error);
     }

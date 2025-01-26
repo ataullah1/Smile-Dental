@@ -1,6 +1,6 @@
-import { FiPhoneCall } from 'react-icons/fi';
-import useLang from '../Hooks/useLang';
-import BannerAppiontmentFrom from './BannerAppiontmentFrom';
+import { FiPhoneCall } from "react-icons/fi";
+import useLang from "../Hooks/useLang";
+import BannerAppiontmentFrom from "./BannerAppiontmentFrom";
 
 const BannerContent = () => {
   const lang = useLang();
@@ -28,7 +28,7 @@ const BannerContent = () => {
                 গত অর্ধ-যুগ ধরে আমরাই দিয়ে আসছি বাংলাদেশের সেরা ডেন্টাল সেবা।
               </span>
             ) : (
-              'We have been providing the best dental services in Bangladesh for the past half-century.'
+              "We have been providing the best dental services in Bangladesh for the past half-century."
             )}
           </p>
           <a
@@ -38,7 +38,7 @@ const BannerContent = () => {
             <span className="text-2xl">
               <FiPhoneCall />
             </span>
-            {lang ? <span>০১৪০১-৫৩২০১৮</span> : '01401-532018'}
+            {lang ? <span>০১৪০১-৫৩২০১৮</span> : "01401-532018"}
           </a>
         </div>
       </div>
@@ -47,7 +47,7 @@ const BannerContent = () => {
           {lang ? (
             <span className="bang text-3xl">অ্যাপয়েন্টমেন্ট নিন</span>
           ) : (
-            '  Make Appointment'
+            "  Make Appointment"
           )}
         </h1>
 
