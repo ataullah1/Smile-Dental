@@ -1,13 +1,13 @@
-import BannerContent from '../../Utility/BannerContent';
-import OnlyMobileViewAppointmentForm from '../../Utility/OnlyMobileViewAppointmentForm';
-import AboutSec from '../../components/AboutSec/AboutSec';
-import { Banner } from '../../components/Banner/Banner';
-import BlogSec from '../../components/BlogSec/BlogSec';
-import MiddleBanner from '../../components/MiddleBanner/MiddleBanner';
-import SecondMiddleBanner from '../../components/MiddleBanner/SecondMiddleBanner';
-import OurDentistSec from '../../components/OurDentistSec/OurDentistSec';
-import ReviewSec from '../../components/ReviewSec/ReviewSec';
-import ServiceSec from '../../components/ServiceSec/ServiceSec';
+import BannerContent from "../../Utility/BannerContent";
+import OnlyMobileViewAppointmentForm from "../../Utility/OnlyMobileViewAppointmentForm";
+import AboutSec from "../../components/AboutSec/AboutSec";
+import { Banner } from "../../components/Banner/Banner";
+import BlogSec from "../../components/BlogSec/BlogSec";
+import MiddleBanner from "../../components/MiddleBanner/MiddleBanner";
+import SecondMiddleBanner from "../../components/MiddleBanner/SecondMiddleBanner";
+import OurDentistSec from "../../components/OurDentistSec/OurDentistSec";
+import ReviewSec from "../../components/ReviewSec/ReviewSec";
+import ServiceSec from "../../components/ServiceSec/ServiceSec";
 
 const Home = () => {
   return (

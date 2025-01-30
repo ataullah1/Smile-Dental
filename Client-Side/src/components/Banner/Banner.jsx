@@ -5,11 +5,10 @@ export const Banner = () => {
   //   Slider ==============
   const [currentSlider, setCurrentSlider] = useState(0);
   const carouselImages = [
-    "https://img.freepik.com/free-photo/young-female-patient-visiting-dentist-office_496169-930.jpg?t=st=1718867366~exp=1718870966~hmac=3fdf6dd1a6212cd93afb6507e8d09f0e53fcaa5800eee12797752f9e07550904&w=900",
-    "https://img.freepik.com/free-photo/woman-patient-dentist_1303-9355.jpg?t=st=1718867442~exp=1718871042~hmac=99732e25ac612c13740c52fdf97e4573f6d578d69ded6396e543f06706deba2b&w=900",
-    "https://img.freepik.com/premium-photo/woman-doctor-dentist-treating-teeth-patient-dental-chair-dental-treatment-medicine-dentistry-health-care-concept_116407-12487.jpg?w=900",
-    "https://img.freepik.com/free-photo/happy-afro-kid-regular-check-up-teeth-dental-clinic_651396-1411.jpg?t=st=1718867533~exp=1718871133~hmac=67168c44db9fc960b4afb1e24c54018c86359e83458c7b58089ebaebb8b84165&w=900",
-    "https://img.freepik.com/premium-photo/dentist-s-teeth-checkup-series-related-photos_21730-8424.jpg?w=900",
+    "/image/hero1.png",
+    "/image/hero2.png",
+    "/image/hero3.png",
+    "/image/hero4.png",
   ];
   const prevSlider = () =>
     setCurrentSlider((currentSlider) =>
