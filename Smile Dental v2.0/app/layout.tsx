@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import LanguageToggle from "./components/common/LanguageToggle";
 
 import TheHeader from "./components/layout/TheHeader";
-import TheFooter from "./components/layout/TheFooter";
 
 import Loader from "./components/Loader";
 import AppProvider from "./components/AppProvider";
 import { Suspense } from "react";
 import Spinner from "./components/Spinner";
-import { LanguageProvider } from "./components/provider/LanguageContext";
+import FooterWrapper from "./components/layout/FooterWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -57,17 +57,16 @@ export default function RootLayout({
     <html lang="en">
       <AppProvider>
         <body className={inter.className}>
-          <LanguageProvider>
-            <div className="flex flex-col min-h-screen">
-              <TheHeader />
-              <Suspense fallback={<Spinner />}>
-                <Loader />
-              </Suspense>
-              {children}
-              <Analytics />
-            </div>
-            <TheFooter />
-          </LanguageProvider>
+          <LanguageToggle />
+          <div className="flex flex-col min-h-screen">
+            <TheHeader />
+            <Suspense fallback={<Spinner />}>
+              <Loader />
+            </Suspense>
+            {children}
+            <Analytics />
+          </div>
+          <FooterWrapper />
         </body>
       </AppProvider>
     </html>

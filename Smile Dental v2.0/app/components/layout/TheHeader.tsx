@@ -1,8 +1,6 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
-import { LanguageContext } from "../provider/LanguageContext";
-import useLang from "../hooks/useLang";
+import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { ChevronDown, UserCircle } from "lucide-react";
 import { MdGTranslate } from "react-icons/md";
@@ -10,14 +8,27 @@ import { CgClose, CgMenuRightAlt } from "react-icons/cg";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { setCookie } from "cookies-next";
+import { languageEvents } from "@/app/lib/languageEvents";
 
 const TheHeader = () => {
   const { status } = useSession();
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
+  const [isBn, setIsBn] = useState(false);
   const pathName = usePathname();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    setIsBn(document.cookie.includes("IS_LANG=bn"));
+
+    return languageEvents.subscribe(() => {
+      setIsBn(document.cookie.includes("IS_LANG=bn"));
+    });
+  }, []);
 
   useEffect(() => {
     const handleScrolled = () => {
@@ -33,54 +44,55 @@ const TheHeader = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const languageContext = useContext(LanguageContext);
-  if (!languageContext) {
-    throw new Error("LanguageContext is undefined");
-  }
-  const { toggleLanguage } = languageContext;
-  const lang = useLang();
+  const toggleLanguage = useCallback(() => {
+    const newIsBn = !isBn;
+    setIsBn(newIsBn);
+    setCookie("IS_LANG", newIsBn ? "bn" : "en");
+    languageEvents.emit();
+    router.refresh();
+  }, [isBn, router]);
 
   const menuItems = [
-    { label: lang ? "হোম" : "Home", href: "/" },
+    { label: isBn ? "হোম" : "Home", href: "/" },
     {
-      label: lang ? "শাখা সমূহ" : "Branches",
+      label: isBn ? "শাখা সমূহ" : "Branches",
       subMenu: [
         {
-          label: lang ? "ঢাকা যাত্রাবাড়ী শাখা" : "Dhaka Jatrabari Branch",
+          label: isBn ? "ঢাকা যাত্রাবাড়ী শাখা" : "Dhaka Jatrabari Branch",
           href: "/jatrabari",
         },
         {
-          label: lang ? "ঢাকা মিরপুর শাখা" : "Dhaka Mirpur Branch",
+          label: isBn ? "ঢাকা মিরপুর শাখা" : "Dhaka Mirpur Branch",
           href: "/mirpur",
         },
         {
-          label: lang ? "বরিশাল চৌমাথা শাখা" : "Barishal Branch",
+          label: isBn ? "বরিশাল চৌমাথা শাখা" : "Barishal Branch",
           href: "/barishal",
         },
         {
-          label: lang ? "বামনা-ডৌয়াতলা শাখা" : "Dawatala Branch",
+          label: isBn ? "বামনা-ডৌয়াতলা শাখা" : "Dawatala Branch",
           href: "/Dawatala",
         },
       ],
     },
-    { label: lang ? "চিকিৎসা" : "Treatments", href: "/treatments" },
+    { label: isBn ? "চিকিৎসা" : "Treatments", href: "/treatments" },
     {
-      label: lang ? "অন্যান্য" : "Others",
+      label: isBn ? "অন্যান্য" : "Others",
       subMenu: [
-        { label: lang ? "প্রবন্ধ পড়ুন" : "Read Blogs", href: "/blogs" },
+        { label: isBn ? "প্রবন্ধ পড়ুন" : "Read Blogs", href: "/blogs" },
         {
-          label: lang ? "আমাদের ডেন্টিসগণ" : "Our Dentists",
+          label: isBn ? "আমাদের ডেন্টিসগণ" : "Our Dentists",
           href: "/dentists",
         },
         {
-          label: lang ? "অ্যাপয়েন্টমেন্ট" : "Appointment",
+          label: isBn ? "অ্যাপয়েন্টমেন্ট" : "Appointment",
           href: "/appointment",
         },
-        { label: lang ? "আমাদের চাকরি" : "Our Jobs", href: "/career" },
+        { label: isBn ? "আমাদের চাকরি" : "Our Jobs", href: "/career" },
       ],
     },
-    { label: lang ? "আমাদের সম্পর্কে" : "About Us", href: "/about" },
-    { label: lang ? "যোগাযোগ" : "Contact", href: "/contact" },
+    { label: isBn ? "আমাদের সম্পর্কে" : "About Us", href: "/about" },
+    { label: isBn ? "যোগাযোগ" : "Contact", href: "/contact" },
   ];
 
   return (
@@ -98,6 +110,7 @@ const TheHeader = () => {
             Logo
           </button>
         </Link>
+
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center navigation text-slate-900 text-lg">
           {menuItems.map((item, index) => (
@@ -109,7 +122,6 @@ const TheHeader = () => {
             >
               {item.subMenu ? (
                 <>
-                  {/* Button with Active Highlight */}
                   <button
                     className={`flex items-center gap-2 ${
                       item.subMenu.some((sub) => sub.href === pathName)
@@ -123,7 +135,6 @@ const TheHeader = () => {
                     </span>
                   </button>
 
-                  {/* Dropdown with Smooth Animation */}
                   <AnimatePresence>
                     {activeDropdown === index && (
                       <motion.div
@@ -148,7 +159,6 @@ const TheHeader = () => {
                   </AnimatePresence>
                 </>
               ) : (
-                // Regular Menu Item
                 <Link
                   className={`py-2 px-2 hover:text-pClr ${
                     pathName === item.href ? "text-pClr" : ""
@@ -171,18 +181,20 @@ const TheHeader = () => {
             <span className="sm:text-2xl">
               <MdGTranslate />
             </span>
-            {lang ? "EN" : <span className="bang">বাং</span>}
+            {isBn ? "EN" : <span className="bang">বাং</span>}
           </button>
+
           <Link
             href={"/booking"}
             className="py-2 px-4 xl:px-6 duration-200 bg-pClr hover:bg-pClr2 text-white rounded-md font-semibold hidden lg:block"
           >
-            {lang ? (
+            {isBn ? (
               <span className="bang">অ্যাপয়েন্টমেন্ট</span>
             ) : (
               "Appointment"
             )}
           </Link>
+
           {/* Menu Button for Mobile */}
           <button
             onClick={() => setMenu(!menu)}
@@ -193,7 +205,6 @@ const TheHeader = () => {
 
           {status === "authenticated" && (
             <div className="relative">
-              {/* Admin Icon */}
               <button
                 onClick={() => setIsDropdownOpen((prev) => !prev)}
                 aria-label="Open admin dropdown"
@@ -202,7 +213,6 @@ const TheHeader = () => {
                 <UserCircle className="w-8 h-8" />
               </button>
 
-              {/* Dropdown Menu */}
               <AnimatePresence>
                 {isDropdownOpen && (
                   <motion.div
@@ -251,7 +261,6 @@ const TheHeader = () => {
                   <div key={index} className="group relative py-2 px-2">
                     {item.subMenu ? (
                       <>
-                        {/* Button to Toggle Dropdown */}
                         <button
                           className="flex items-center gap-2 hover:text-pClr"
                           onClick={() =>
@@ -264,7 +273,6 @@ const TheHeader = () => {
                           <ChevronDown />
                         </button>
 
-                        {/* Dropdown Menu */}
                         <AnimatePresence>
                           {activeDropdown === index && (
                             <motion.div
@@ -277,8 +285,8 @@ const TheHeader = () => {
                                 <Link
                                   key={subIndex}
                                   onClick={() => {
-                                    setMenu(false); // Close mobile menu
-                                    setActiveDropdown(null); // Close all dropdowns
+                                    setMenu(false);
+                                    setActiveDropdown(null);
                                   }}
                                   className={`py-2 px-2 hover:text-pClr ${
                                     pathName === subItem.href ? "text-pClr" : ""
@@ -293,7 +301,6 @@ const TheHeader = () => {
                         </AnimatePresence>
                       </>
                     ) : (
-                      // Regular Menu Item
                       <Link
                         onClick={() => setMenu(false)}
                         className={`py-2 px-2 hover:text-pClr ${
@@ -305,12 +312,12 @@ const TheHeader = () => {
                       </Link>
                     )}
                   </div>
-                ))}{" "}
+                ))}
                 <Link
                   href={"/booking"}
                   className="py-2 px-4 xl:px-6 duration-200 bg-pClr hover:bg-pClr2 text-white rounded-md font-semibold"
                 >
-                  {lang ? (
+                  {isBn ? (
                     <span className="bang">অ্যাপয়েন্টমেন্ট</span>
                   ) : (
                     "Appointment"

@@ -1,15 +1,15 @@
-import HeroContainer from '../components/layout/HeroContainer'
+import HeroContainer from "../components/layout/hero/HeroBanner";
 
-import services from '@/public/services.webp'
-import BookVisit from '../components/layout/BookVisit'
-import ServicesAbout from '../components/services/ServicesAbout'
-import OurServices from '../components/services/OurServices'
-import { Metadata } from 'next'
-import HeroHeaders from '../components/layout/HeroHeaders'
+import services from "@/public/services.webp";
+import BookVisit from "../components/layout/BookVisit";
+import ServicesAbout from "../components/services/ServicesAbout";
+import OurServices from "../components/services/OurServices";
+import { Metadata } from "next";
+import HeroHeaders from "../components/layout/HeroHeaders";
 
 export const metadata: Metadata = {
-  title: 'Services',
-}
+  title: "Services",
+};
 
 function Services() {
   return (
@@ -21,6 +21,6 @@ function Services() {
       <OurServices />
       <BookVisit />
     </>
-  )
+  );
 }
-export default Services
+export default Services;
