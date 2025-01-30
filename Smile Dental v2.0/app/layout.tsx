@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import LanguageToggle from "./components/common/LanguageToggle";
+import { LanguageProvider } from "./components/provider/LanguageProvider";
+import { getLanguage } from "@/app/lib/getLanguage";
 
 import TheHeader from "./components/layout/TheHeader";
 
@@ -53,21 +55,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isBn = getLanguage();
+
   return (
-    <html lang="en">
+    <html lang={isBn ? "bn" : "en"}>
       <AppProvider>
-        <body className={inter.className}>
-          <LanguageToggle />
-          <div className="flex flex-col min-h-screen">
-            <TheHeader />
-            <Suspense fallback={<Spinner />}>
-              <Loader />
-            </Suspense>
-            {children}
-            <Analytics />
-          </div>
-          <FooterWrapper />
-        </body>
+        <LanguageProvider>
+          <body className={inter.className}>
+            <LanguageToggle isBn={isBn} />
+            <div className="flex flex-col min-h-screen">
+              <TheHeader />
+              <Suspense fallback={<Spinner />}>
+                <Loader />
+              </Suspense>
+              {children}
+              <Analytics />
+            </div>
+            <FooterWrapper />
+          </body>
+        </LanguageProvider>
       </AppProvider>
     </html>
   );

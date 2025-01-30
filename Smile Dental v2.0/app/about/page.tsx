@@ -2,7 +2,6 @@ import BookVisit from "../components/layout/BookVisit";
 import about from "@/public/about.webp";
 import OurTeamAbout from "../components/about/OurTeamAbout";
 import OurMission from "../components/about/OurMission";
-import HeroContainer from "../components/layout/hero/HeroBanner";
 import { Metadata } from "next";
 import HeroHeaders from "../components/layout/HeroHeaders";
 
@@ -13,9 +12,7 @@ export const metadata: Metadata = {
 function About() {
   return (
     <>
-      <HeroContainer backgroundImage={about.src}>
-        <HeroHeaders />
-      </HeroContainer>
+      <HeroHeaders />
       <OurMission />
       <OurTeamAbout />
       <BookVisit />

@@ -1,19 +1,9 @@
-"use client";
+import { getLanguage } from "@/app/lib/getLanguage";
 import { FiPhoneCall } from "react-icons/fi";
 import BannerAppointmentForm from "./BannerAppiontmentFrom";
-import { useEffect, useState } from "react";
-import { languageEvents } from "@/app/lib/languageEvents";
 
-const BannerContent: React.FC = () => {
-  const [isBn, setIsBn] = useState(false);
-
-  useEffect(() => {
-    setIsBn(document.cookie.includes("IS_LANG=bn"));
-
-    return languageEvents.subscribe(() => {
-      setIsBn(document.cookie.includes("IS_LANG=bn"));
-    });
-  }, []);
+export default function BannerContent() {
+  const isBn = getLanguage();
 
   return (
     <div className="pt-10 md:pt-0 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-11/12 mx-auto h-full flex flex-col md:flex-row items-center gap-5 text-center md:text-left">
@@ -61,11 +51,8 @@ const BannerContent: React.FC = () => {
             "Make Appointment"
           )}
         </h1>
-        {/* Appointment form======= */}
-        <BannerAppointmentForm />
+        <BannerAppointmentForm isBn={isBn} />
       </div>
     </div>
   );
-};
-
-export default BannerContent;
+}

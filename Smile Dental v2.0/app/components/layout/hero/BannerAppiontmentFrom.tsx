@@ -1,7 +1,9 @@
 "use client";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useEffect, useState } from "react";
-import { languageEvents } from "@/app/lib/languageEvents";
+
+interface Props {
+  isBn: boolean;
+}
 
 interface FormData {
   name: string;
@@ -13,17 +15,7 @@ interface FormData {
   time?: string;
 }
 
-const BannerAppointmentForm = () => {
-  const [isBn, setIsBn] = useState(false);
-
-  useEffect(() => {
-    setIsBn(document.cookie.includes("IS_LANG=bn"));
-
-    return languageEvents.subscribe(() => {
-      setIsBn(document.cookie.includes("IS_LANG=bn"));
-    });
-  }, []);
-
+const BannerAppointmentForm = ({ isBn }: Props) => {
   // Form Data=====================
   const {
     register,
