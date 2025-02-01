@@ -1,36 +1,38 @@
-import Image from 'next/image'
+import Image from "next/image";
 
-import doc1 from '@/public/doc1.webp'
-import doc2 from '@/public/doc2.webp'
-import doc3 from '@/public/doc3.webp'
-import doc4 from '@/public/doc4.webp'
+import doc1 from "@/public/doc1.webp";
+import doc2 from "@/public/doc2.webp";
+import doc3 from "@/public/doc3.webp";
+import doc4 from "@/public/doc4.webp";
 
 function OurTeamAbout() {
   return (
-    <section className='mx-auto w-full max-w-[1400px] px-5 py-16 md:px-10 md:py-24 lg:py-32'>
-      <h2 className='text-center text-3xl font-bold md:text-5xl'>
+    <section className="mx-auto w-full max-w-[1400px] px-5 py-16 md:px-10 md:py-24 lg:py-32">
+      <h2 className="text-center text-3xl font-bold md:text-5xl">
         Our Team Members
       </h2>
-      <p className='mx-auto mb-8 mt-4 max-w-lg text-center text-slate-500 md:mb-16'>
+      <p className="mx-auto mb-8 mt-4 max-w-lg text-center text-slate-500 md:mb-16">
         Meet the skilled hands & kind hearts behind your healthy smile
       </p>
 
-      <div className='grid md:grid-cols-2 grid- gap-6 items-stretch text-balance'>
+      <div className="grid md:grid-cols-2 grid- gap-6 items-stretch text-balance">
         <div
-          className='p-2 border border-solid border-black rounded md:grid grid-cols-2 gap-6 '
-          id='daniel'>
+          className="p-2 border border-solid border-black rounded md:grid grid-cols-2 gap-6 "
+          id="daniel"
+        >
           <Image
-            placeholder='blur'
+            placeholder="blur"
             src={doc1}
-            alt='Picture of Dr. Daniel Lee '
+            alt="Picture of Dr. Daniel Lee "
             height={1000}
             width={1000}
+            style={{ objectFit: "cover" }}
           />
-          <div className='mt-4 md:mt-0 p-2'>
-            <h3 className='font-bold text-lg'>Dr. Daniel Lee</h3>
-            <p className='text-sm text-slate-500'>(Dentist)</p>
+          <div className="mt-4 md:mt-0 p-2">
+            <h3 className="font-bold text-lg">Dr. Daniel Lee</h3>
+            <p className="text-sm text-slate-500">(Dentist)</p>
 
-            <p className='text-sm text-slate-600 mt-4 '>
+            <p className="text-sm text-slate-600 mt-4 ">
               Dr. Daniel Lee is an experienced dentist with over 20 years in the
               field. A graduate from the University of Dental Medicine, he is
               known for his gentle touch and commitment to patient health. He
@@ -41,12 +43,13 @@ function OurTeamAbout() {
           </div>
         </div>
         <div
-          className='p-2 border border-solid border-black rounded grid md:grid-cols-2  gap-6 '
-          id='sarah'>
-          <div className='order-2 sm:order-1 mt-4 md:mt-0 p-2'>
-            <h3 className='font-bold text-lg'>Dr. Sarah Green</h3>
-            <p className='text-sm text-slate-500'>(Pediatric Dentist)</p>
-            <p className='text-sm text-slate-600 mt-4'>
+          className="p-2 border border-solid border-black rounded grid md:grid-cols-2  gap-6 "
+          id="sarah"
+        >
+          <div className="order-2 sm:order-1 mt-4 md:mt-0 p-2">
+            <h3 className="font-bold text-lg">Dr. Sarah Green</h3>
+            <p className="text-sm text-slate-500">(Pediatric Dentist)</p>
+            <p className="text-sm text-slate-600 mt-4">
               Dr. Sarah Green is a dedicated Pediatric Dentist with over 15
               years of experience. She graduated from the renowned Children's
               Dental College and is passionate about children's oral health. Dr.
@@ -58,30 +61,33 @@ function OurTeamAbout() {
           </div>
 
           <Image
-            placeholder='blur'
+            placeholder="blur"
             src={doc2}
-            alt='Picture of Dr.Sarah Green '
+            alt="Picture of Dr.Sarah Green "
             height={1000}
             width={1000}
-            className='order-1 sm:order-2'
+            className="order-1 sm:order-2"
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>
-      <div className='grid md:grid-cols-2 gap-6 items-stretch mt-8'>
+      <div className="grid md:grid-cols-2 gap-6 items-stretch mt-8">
         <div
-          className='p-2 border border-solid border-black rounded md:grid grid-cols-2 gap-6 '
-          id='emily'>
+          className="p-2 border border-solid border-black rounded md:grid grid-cols-2 gap-6 "
+          id="emily"
+        >
           <Image
-            placeholder='blur'
+            placeholder="blur"
             src={doc4}
-            alt='Picture of Dr. Emily Rose '
+            alt="Picture of Dr. Emily Rose "
             height={1000}
             width={1000}
+            style={{ objectFit: "cover" }}
           />
-          <div className='mt-4 md:mt-0 p-2'>
-            <h3 className='font-bold text-lg'>Dr. Emily Rose</h3>
-            <p className='text-sm text-slate-500'>(Cosmetic Dentist)</p>
-            <p className='text-sm text-slate-600 mt-4'>
+          <div className="mt-4 md:mt-0 p-2">
+            <h3 className="font-bold text-lg">Dr. Emily Rose</h3>
+            <p className="text-sm text-slate-500">(Cosmetic Dentist)</p>
+            <p className="text-sm text-slate-600 mt-4">
               Dr. Sarah Green is a dedicated Pediatric Dentist with over 15
               years of experience. She graduated from the renowned Children`s
               Dental College and is passionate about children`s oral health. Dr.
@@ -93,12 +99,13 @@ function OurTeamAbout() {
           </div>
         </div>
         <div
-          className='p-2 border border-solid border-black rounded grid md:grid-cols-2 gap-6 '
-          id='michael'>
-          <div className='order-2 sm:order-1 mt-4 md:mt-0 p-2'>
-            <h3 className='font-bold text-lg'>Dr. Michael White</h3>
-            <p className='text-sm text-slate-500'>(Endodontist)</p>
-            <p className='text-sm text-slate-600 mt-4'>
+          className="p-2 border border-solid border-black rounded grid md:grid-cols-2 gap-6 "
+          id="michael"
+        >
+          <div className="order-2 sm:order-1 mt-4 md:mt-0 p-2">
+            <h3 className="font-bold text-lg">Dr. Michael White</h3>
+            <p className="text-sm text-slate-500">(Endodontist)</p>
+            <p className="text-sm text-slate-600 mt-4">
               Dr. Michael White is a skilled Endodontist with over 20 years of
               experience. He earned his degree from the esteemed Dental School
               of Endodontics. Dr. White specializes in diagnosing tooth pain and
@@ -109,16 +116,17 @@ function OurTeamAbout() {
             </p>
           </div>
           <Image
-            placeholder='blur'
+            placeholder="blur"
             src={doc3}
-            alt='Picture of Dr. Michael White'
+            alt="Picture of Dr. Michael White"
             height={1000}
             width={1000}
-            className='order-1 sm:order-2'
+            className="order-1 sm:order-2"
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>
     </section>
-  )
+  );
 }
-export default OurTeamAbout
+export default OurTeamAbout;

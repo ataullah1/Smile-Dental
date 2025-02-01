@@ -14,13 +14,14 @@ import { languageEvents } from "@/app/lib/languageEvents";
 
 const TheHeader = () => {
   const { status } = useSession();
-  const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [isBn, setIsBn] = useState(false);
   const pathName = usePathname();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const router = useRouter();
+  const [isScrolledUp, setIsScrolledUp] = useState(true);
+  const [lastScrollPos, setLastScrollPos] = useState(0);
 
   useEffect(() => {
     setIsBn(document.cookie.includes("IS_LANG=bn"));
@@ -32,13 +33,15 @@ const TheHeader = () => {
 
   useEffect(() => {
     const handleScrolled = () => {
-      setScrolled(window.scrollY > 0);
+      const currentScrollPos = window.scrollY;
+      setIsScrolledUp(currentScrollPos < lastScrollPos);
+      setLastScrollPos(currentScrollPos);
     };
     window.addEventListener("scroll", handleScrolled);
     return () => {
       window.removeEventListener("scroll", handleScrolled);
     };
-  }, []);
+  }, [lastScrollPos]);
 
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -97,8 +100,8 @@ const TheHeader = () => {
 
   return (
     <div
-      className={`w-full fixed top-0 left-0 z-[900] duration-300 bg-[#ffffff] ${
-        scrolled ? "shadow-xl shadow-[#4a484845] py-2" : "py-3"
+      className={`w-full fixed top-0 left-0 z-[900] duration-300 bg-[#ffffff] py-3 ${
+        isScrolledUp ? "translate-y-0" : "-translate-y-full"
       }`}
     >
       <div className="flex justify-between items-center w-11/12 mx-auto">

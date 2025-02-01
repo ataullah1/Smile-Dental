@@ -23,6 +23,7 @@ function OurMission() {
             src={about2}
             alt="image of patient smiling"
             className="object-contain rounded"
+            style={{ objectFit: "cover" }}
           />
           <div className="flex flex-col gap-5 rounded-2xl border border-solid border-black p-10 sm:p-20">
             <h2 className="text-3xl font-bold md:text-5xl">Our Mission</h2>

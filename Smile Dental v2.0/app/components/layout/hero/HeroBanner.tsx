@@ -2,17 +2,23 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+import hero1 from "@/public/images/hero1.png";
+import hero2 from "@/public/images/hero2.png";
+import hero3 from "@/public/images/sdfgsdf.png";
+import hero4 from "@/public/images/hero4.png";
+import hero5 from "@/public/images/hero5.png";
+import hero6 from "@/public/images/hero6.webp";
 
 export const Banner: React.FC = () => {
   const [currentSlider, setCurrentSlider] = useState<number>(0);
-  const carouselImages: string[] = [
-    "/images/hero1.png",
-    "/images/hero2.png",
-    "/images/hero3.png",
-    "/images/hero4.png",
-    "/images/hero5.png",
-    "/images/hero6.webp",
+  const carouselImages: StaticImageData[] = [
+    hero1,
+    hero2,
+    hero3,
+    hero4,
+    hero5,
+    hero6,
   ];
 
   const prevSlider = () =>
@@ -72,8 +78,8 @@ export const Banner: React.FC = () => {
               key={index}
               src={slide}
               alt={`Slider - ${index + 1}`}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               className="min-w-full h-full bg-black/20"
             />
           ))}
